@@ -4,7 +4,7 @@ using Genesis.Domain.Models;
 using Genesis.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-namespace Genesis.Core.Repositories;
+namespace Genesis.Entity.Core.Repositories;
 
 public class BaseRepository<T> : IRepository<T>
     where T : TEntity

@@ -1,13 +1,13 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Genesis.Core.Repositories;
+using Genesis.Entity.Core.Repositories;
 using Genesis.Domain.Models;
 using Genesis.Domain.Repositories;
 using Genesis.Domain.Services;
 using Microsoft.EntityFrameworkCore;
 
-namespace Genesis.Core.Service;
+namespace Genesis.Entity.Core.Service;
 
 public class BaseService<T> : IService<T>
     where T : TEntity
