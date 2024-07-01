@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data.Common;
 using Microsoft.Data.SqlClient;
 
 namespace Genesis.Generator;
@@ -19,13 +21,11 @@ public class GenesisGenerator
         List<string> tables = [];
         try
         {
-            if(Verbose.Level > 0)
-                System.Console.WriteLine("Getting Tables...");
+            Verbose.Info("Getting Tables...");
 
             connection.Open();
 
-            if(Verbose.Level > 0)
-                System.Console.WriteLine("Conection successfully!");
+            Verbose.Success("Conection successfully!");
 
             string selectTables = "select * from sys.tables";
 
@@ -40,12 +40,42 @@ public class GenesisGenerator
         }
         catch( Exception e )
         {
-            System.Console.WriteLine(e);
+            Verbose.Danger(e);
             throw new Exception();
         }
     }
 
-    public void GetTables()
+    public ReadOnlyCollection<DbColumn> GetTableData(string table)
+    {
+
+        using SqlConnection connection = new (this.ConnectionString);
+        try
+        {
+            Verbose.Info($"Getting Table [{table}]...");
+
+            connection.Open();
+
+            Verbose.Success("Conection successfully!");
+
+            string selectTables = $"select top 1 * from {table}";
+
+            using SqlCommand command = new(selectTables, connection);
+            using SqlDataReader reader = command.ExecuteReader();
+            var schema = reader.GetColumnSchema();
+            
+            object[] attributes = [];
+
+
+            return schema;
+        }
+        catch( Exception e )
+        {
+            Verbose.Danger(e);
+            throw new Exception();
+        }
+    }
+
+    private void GenerateClass(DbColumn data)
     {
 
     }
@@ -53,11 +83,9 @@ public class GenesisGenerator
     public void GenerateCode()
     {
         var entities = GetEntities();
+        System.Console.WriteLine(entities[1]);
+        var tabledata = GetTableData(entities[1]);
 
-        foreach (var item in entities)
-        {
-            System.Console.WriteLine(item);    
-        }
     }
 
 }

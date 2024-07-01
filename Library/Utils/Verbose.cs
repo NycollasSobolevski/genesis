@@ -29,8 +29,8 @@ public static class Verbose
     public static void Warning(object text, int level = 0)
         => message(level, text, Color.Yellow);
     public static void Danger(object text, int level = 0)
-        => message(level, text, Color.Yellow);
-    public static void Succes(object text, int level = 0)
+        => message(level, text, Color.Red);
+    public static void Success(object text, int level = 0)
         => message(level, text, Color.Green);
     public static void Content(object text, int level = 0)
         => message(level, text, Color.White);
