@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\GenesisTool\\GenesisTool.csproj": {}
+    "C:\\Users\\son5ct\\Desktop\\Projects\\api-genesis\\GenesisTool\\GenesisTool.csproj": {}
   },
   "projects": {
-    "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\GenesisTool\\GenesisTool.csproj": {
+    "C:\\Users\\son5ct\\Desktop\\Projects\\api-genesis\\GenesisTool\\GenesisTool.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\GenesisTool\\GenesisTool.csproj",
+        "projectUniqueName": "C:\\Users\\son5ct\\Desktop\\Projects\\api-genesis\\GenesisTool\\GenesisTool.csproj",
         "projectName": "GenesisTool",
-        "projectPath": "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\GenesisTool\\GenesisTool.csproj",
+        "projectPath": "C:\\Users\\son5ct\\Desktop\\Projects\\api-genesis\\GenesisTool\\GenesisTool.csproj",
         "packagesPath": "C:\\Users\\son5ct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\GenesisTool\\obj\\",
+        "outputPath": "C:\\Users\\son5ct\\Desktop\\Projects\\api-genesis\\GenesisTool\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\son5ct\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,8 +26,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\Library\\Genesis.csproj": {
-                "projectPath": "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\Library\\Genesis.csproj"
+              "C:\\Users\\son5ct\\Desktop\\Projects\\api-genesis\\Library\\Genesis.csproj": {
+                "projectPath": "C:\\Users\\son5ct\\Desktop\\Projects\\api-genesis\\Library\\Genesis.csproj"
               }
             }
           }
@@ -62,18 +62,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\Library\\Genesis.csproj": {
+    "C:\\Users\\son5ct\\Desktop\\Projects\\api-genesis\\Library\\Genesis.csproj": {
       "version": "0.0.1",
       "restore": {
-        "projectUniqueName": "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\Library\\Genesis.csproj",
+        "projectUniqueName": "C:\\Users\\son5ct\\Desktop\\Projects\\api-genesis\\Library\\Genesis.csproj",
         "projectName": "AspNetCore.Genesis",
-        "projectPath": "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\Library\\Genesis.csproj",
+        "projectPath": "C:\\Users\\son5ct\\Desktop\\Projects\\api-genesis\\Library\\Genesis.csproj",
         "packagesPath": "C:\\Users\\son5ct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\Library\\obj\\",
+        "outputPath": "C:\\Users\\son5ct\\Desktop\\Projects\\api-genesis\\Library\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\son5ct\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -136,7 +136,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

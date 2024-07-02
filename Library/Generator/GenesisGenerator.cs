@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Common;
+using Genesis.Generator.Templates;
 using Microsoft.Data.SqlClient;
 
 namespace Genesis.Generator;
@@ -51,7 +52,7 @@ public class GenesisGenerator
         using SqlConnection connection = new (this.ConnectionString);
         try
         {
-            Verbose.Info($"Getting Table [{table}]...");
+            Verbose.Info($"Connecting on table [{table}]...");
 
             connection.Open();
 
@@ -63,13 +64,12 @@ public class GenesisGenerator
             using SqlDataReader reader = command.ExecuteReader();
             var schema = reader.GetColumnSchema();
             
-            object[] attributes = [];
-
-
             return schema;
         }
         catch( Exception e )
         {
+
+            Verbose.Danger("error on Connection");
             Verbose.Danger(e);
             throw new Exception();
         }
@@ -83,9 +83,9 @@ public class GenesisGenerator
     public void GenerateCode()
     {
         var entities = GetEntities();
-        System.Console.WriteLine(entities[1]);
         var tabledata = GetTableData(entities[1]);
-
+        string sla = GenesisTemplate.GetClassTemplate(entities[1], tabledata);
+        System.Console.WriteLine(sla);
     }
 
 }
