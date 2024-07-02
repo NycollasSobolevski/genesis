@@ -1,6 +1,6 @@
 namespace Genesis.Domain.Models;
 
-public class TEntity
+public class IEntity
 {
     public int Id { get; set; }
 }

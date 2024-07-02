@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Genesis.Entity.Core.Service;
 
 public class BaseService<T> : IService<T>
-    where T : TEntity
+    where T : IEntity
 {
 
     protected readonly IRepository<T> repository;

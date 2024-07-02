@@ -5,7 +5,7 @@ using System.Linq;
 namespace Genesis.Domain.Repositories;
 
 public interface IRepository<T>
-    where T : TEntity
+    where T : IEntity
 {
     IQueryable<T> Get();
     IQueryable<T> GetAllNoTracking();

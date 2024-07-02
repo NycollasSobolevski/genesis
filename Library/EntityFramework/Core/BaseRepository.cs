@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Genesis.Entity.Core.Repositories;
 
 public class BaseRepository<T> : IRepository<T>
-    where T : TEntity
+    where T : IEntity
 {
 
     protected DbContext context { get; set; }

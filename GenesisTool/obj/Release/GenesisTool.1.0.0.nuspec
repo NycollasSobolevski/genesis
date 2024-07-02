@@ -8,7 +8,7 @@
     <packageTypes>
       <packageType name="DotnetTool" />
     </packageTypes>
-    <repository type="git" commit="c10c2d2e97349ca5043cdc84611c7f2d90dee8e1" />
+    <repository type="git" commit="4bb86a17f34bd6ed825010639f3779b4e4bde8d8" />
   </metadata>
   <files>
     <file src="C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\obj\DotnetToolSettings.xml" target="tools\net8.0\any\DotnetToolSettings.xml" />

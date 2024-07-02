@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Common;
+using System.IO;
 using Genesis.Generator.Templates;
+using Genesis.Text;
 using Microsoft.Data.SqlClient;
 
 namespace Genesis.Generator;
@@ -83,9 +85,45 @@ public class GenesisGenerator
     public void GenerateCode()
     {
         var entities = GetEntities();
-        var tabledata = GetTableData(entities[1]);
-        string sla = GenesisTemplate.GetClassTemplate(entities[1], tabledata);
-        System.Console.WriteLine(sla);
+        
+        string tableName = TextManipulator.ToPascalCase(entities[1]);
+        var tabledata = GetTableData(tableName);
+        string sla = GenesisTemplate.GetClassTemplate(tableName, tabledata);
+        GenerateTreeByEntity(tableName);
+        EntitiesGenerator ent = new(tableName, sla);
+        ent.GenerateEntity();
+
     }
 
+
+    public void GenerateTreeByEntity(string entity)
+    {
+        string baseDirectory = Directory.GetCurrentDirectory();
+        string[] directories = [
+            @$"{baseDirectory}\Domain\{entity}\Models",
+            @$"{baseDirectory}\Domain\{entity}\Repositories",
+            @$"{baseDirectory}\Domain\{entity}\Services",
+            @$"{baseDirectory}\Core\{entity}\Mapping\",
+            @$"{baseDirectory}\Core\{entity}\Repository",
+            @$"{baseDirectory}\Core\{entity}\Service",
+        ];
+        foreach (var path in directories)
+        {
+            if(Directory.Exists(path))
+                continue;
+
+            Directory.CreateDirectory(path);
+        }
+    }
+
+    public void GenerateBaseFiles()
+    {
+        string baseDirectory = Directory.GetCurrentDirectory();
+        string[] paths = [@"\Core", @"\Domain"];
+
+        foreach (var path in paths)
+            Directory.CreateDirectory(baseDirectory + path);
+
+        
+    }
 }

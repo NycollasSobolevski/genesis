@@ -1,0 +1,5 @@
+C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\TestArea\obj\Debug\net8.0\TestArea.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\TestArea\obj\Debug\net8.0\TestArea.AssemblyInfoInputs.cache
+C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\TestArea\obj\Debug\net8.0\TestArea.AssemblyInfo.cs
+C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\TestArea\obj\Debug\net8.0\TestArea.csproj.CoreCompileInputs.cache
+C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\TestArea\obj\Debug\net8.0\TestArea.sourcelink.json

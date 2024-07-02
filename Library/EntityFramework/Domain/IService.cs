@@ -4,7 +4,7 @@ using Genesis.Domain.Models;
 namespace Genesis.Domain.Services;
 
 public interface IService<T>
-    where T : TEntity
+    where T : IEntity
 {
     public Task<T> AddAsync ( T entity );
     public void Add ( T entity );
