@@ -28,7 +28,7 @@ public partial class GenesisGenerator
 
         GenesisTemplate template = new(tableName, tabledata);
         string classTemplate = template.GetClassTemplate();
-        EntitiesGenerator generator = new(tableName, classTemplate);
+        EntitiesGenerator generator = new(tableName, tabledata);
         generator.GenerateEntity();
     }
 

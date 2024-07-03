@@ -1,0 +1,6 @@
+using Genesis.Domain.Repositories;
+using TestArea.Domain.Models;
+
+namespace TestArea.Domain.Repository;
+
+public interface ITestRepository : IRepository<Test> { }

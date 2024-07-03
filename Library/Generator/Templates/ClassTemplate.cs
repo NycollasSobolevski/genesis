@@ -12,7 +12,7 @@ public partial class GenesisTemplate
 {
     public string GetClassTemplate( )
     {
-        string @namespace = getNamespace("Models");
+        string @namespace = getDomainNamespace("Models");
 
         string tableName = TextManipulator.ToPascalCase(this.TableName);
 
