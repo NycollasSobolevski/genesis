@@ -2,64 +2,38 @@ using System;
 using System.Collections.ObjectModel;
 using System.Data.Common;
 using System.IO;
+using System.Text;
+using Genesis.Converter;
 using Genesis.Text;
 
 namespace Genesis.Generator.Templates;
 
 public partial class GenesisTemplate 
 {
-    public static string GetClassTemplate(string tableName, ReadOnlyCollection<DbColumn> tableData )
+    public string GetClassTemplate( )
     {
-        string @namespace = GenesisTemplate.getNamesPace("Models");
+        string @namespace = getNamespace("Models");
 
-        tableName = TextManipulator.ToPascalCase(tableName);
+        string tableName = TextManipulator.ToPascalCase(this.TableName);
 
-        string result = $$"""
-        using Genesis.Domain.Models;
+        StringBuilder stringBuilder = new();
+        stringBuilder.AppendLine("using Genesis.Domain.Models;");
+        stringBuilder.AppendLine();
+        stringBuilder.AppendLine(@namespace);
+        stringBuilder.AppendLine();
+        stringBuilder.AppendLine($$"""public partial class {{tableName}} : TEntity""");
+        stringBuilder.AppendLine("{");
 
-        {{@namespace}}
-
-        public partial class {{tableName}} : IEntity
-        {
-
-        """;
-        foreach (var item in tableData)
+        foreach (var item in this.TableData)
         {
             string columnName = TextManipulator.ToPascalCase(item.ColumnName);
-            result += $$"""
-                public {{item.DataType}}{{(item.AllowDBNull ?? false ? "?" : "")}} {{columnName}} { get; set; }
-            """ ;           
-            result += "\n";
+            if(columnName == "Id")
+                continue;
+            string typeInNet = DataTypeConverter.GetNetType(item.DataTypeName).TypeInNet;
+            stringBuilder.AppendLine($$"""  public {{typeInNet}}{{(item.AllowDBNull ?? false ? "?" : "")}} {{columnName}} { get; set; }""");
         }
 
-        result += "}";
-        return result;
-    }
-
-    private static string getNamesPace (string endNamespace) 
-    {
-        string @namespace;
-        string baseDirectory = Directory.GetCurrentDirectory();
-        System.Console.WriteLine(baseDirectory);
-        // string projectDirectory = Path.GetFullPath(Path.Combine(baseDirectory, @"..\..\..\"));
-        string[] csprojFiles = Directory.GetFiles(baseDirectory, "*.csproj", SearchOption.AllDirectories);
-        if (csprojFiles.Length > 0)
-        {
-            @namespace = Path.GetFileName(csprojFiles[0]).ToString().Split(".")[0];
-        }
-        else
-        {
-            Verbose.Danger("No .csproj file on this project");
-            throw new Exception("");
-        }
-        @namespace = $"namespace {@namespace}.Domain.{endNamespace};" ;
-
-        return @namespace;
-
-    }
-
-    private static string tableTypeConverter ()
-    {
-        return "";
+        stringBuilder.AppendLine("}");
+        return stringBuilder.ToString();
     }
 }

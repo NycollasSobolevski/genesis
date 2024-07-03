@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GenesisTool")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4bb86a17f34bd6ed825010639f3779b4e4bde8d8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+696b497bdbcea4786da5621709be5e10ad20c335")]
 [assembly: System.Reflection.AssemblyProductAttribute("GenesisTool")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GenesisTool")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

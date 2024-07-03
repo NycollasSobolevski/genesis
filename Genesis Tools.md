@@ -4,11 +4,11 @@ ferramenta que vai usar a biblioteca para gerar codigos C# com base no banco de 
 
 commands: 
 // Gerar uma nova estrutura com base no banco de dados:
-> gns database new "databaseUrl"
+> gns database add "databaseUrl"
 	  ^     ^ 	^
 	kind | tool | value
 example: 
-dotnet run database new "Data Source=CA-C-0065D\SQLEXPRESS;Initial Catalog=CNCTest;Integrated Security=True;TrustServerCertificate=true"
+dotnet run database add "Data Source={YourSource}\SQLEXPRESS;Initial Catalog={your catalog};Integrated Security=True;TrustServerCertificate=true"
 
 
 Genesis Library

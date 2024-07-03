@@ -9,13 +9,27 @@ using Microsoft.Data.SqlClient;
 
 namespace Genesis.Generator;
 
-public class GenesisGenerator
+public partial class GenesisGenerator
 {
     public string ConnectionString {get;set;}
 
     public GenesisGenerator(string connectionString)
     {
         this.ConnectionString = connectionString;
+    }
+
+    public void GenerateCode()
+    {
+        var entities = GetEntities();
+        string tableName = TextManipulator.ToPascalCase(entities[1]);
+        TreeGenerator.GenerateTreeByEntity(tableName);
+        
+        var tabledata = GetTableData(tableName);
+
+        GenesisTemplate template = new(tableName, tabledata);
+        string classTemplate = template.GetClassTemplate();
+        EntitiesGenerator generator = new(tableName, classTemplate);
+        generator.GenerateEntity();
     }
 
     public List<string> GetEntities()
@@ -77,53 +91,5 @@ public class GenesisGenerator
         }
     }
 
-    private void GenerateClass(DbColumn data)
-    {
-
-    }
-
-    public void GenerateCode()
-    {
-        var entities = GetEntities();
-        
-        string tableName = TextManipulator.ToPascalCase(entities[1]);
-        var tabledata = GetTableData(tableName);
-        string sla = GenesisTemplate.GetClassTemplate(tableName, tabledata);
-        GenerateTreeByEntity(tableName);
-        EntitiesGenerator ent = new(tableName, sla);
-        ent.GenerateEntity();
-
-    }
-
-
-    public void GenerateTreeByEntity(string entity)
-    {
-        string baseDirectory = Directory.GetCurrentDirectory();
-        string[] directories = [
-            @$"{baseDirectory}\Domain\{entity}\Models",
-            @$"{baseDirectory}\Domain\{entity}\Repositories",
-            @$"{baseDirectory}\Domain\{entity}\Services",
-            @$"{baseDirectory}\Core\{entity}\Mapping\",
-            @$"{baseDirectory}\Core\{entity}\Repository",
-            @$"{baseDirectory}\Core\{entity}\Service",
-        ];
-        foreach (var path in directories)
-        {
-            if(Directory.Exists(path))
-                continue;
-
-            Directory.CreateDirectory(path);
-        }
-    }
-
-    public void GenerateBaseFiles()
-    {
-        string baseDirectory = Directory.GetCurrentDirectory();
-        string[] paths = [@"\Core", @"\Domain"];
-
-        foreach (var path in paths)
-            Directory.CreateDirectory(baseDirectory + path);
-
-        
-    }
+    
 }

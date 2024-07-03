@@ -15,11 +15,11 @@ public class BaseService<T> : IService<T>
 
     protected readonly IRepository<T> repository;
 
-    protected BaseService( BaseRepository<T> _repository )
+    public BaseService( BaseRepository<T> _repository )
         => this.repository = _repository;
 
 
-    public void Add(T entity)
+    public virtual void Add(T entity)
     {
         var objectIfExists = this.repository!
             .GetAllNoTracking()
@@ -32,7 +32,7 @@ public class BaseService<T> : IService<T>
         this.repository.Save( );
     }
 
-    public async Task<T> AddAsync(T entity)
+    public virtual async Task<T> AddAsync(T entity)
     {
         var objectIfExists = await this.repository!
             .GetAllNoTracking()
@@ -46,7 +46,7 @@ public class BaseService<T> : IService<T>
         return obj;
     }
 
-    public void Delete(T entity)
+    public virtual void Delete(T entity)
     {
         var objectIfExists = this.repository!
             .GetAllNoTracking()
@@ -59,7 +59,7 @@ public class BaseService<T> : IService<T>
         this.repository.Save( );
     }
 
-    public async Task DeleteAsync(T entity)
+    public virtual async Task DeleteAsync(T entity)
     {
         var objectIfExists = await this.repository!
             .GetAllNoTracking()
@@ -72,7 +72,7 @@ public class BaseService<T> : IService<T>
         await this.repository.SaveAsync( );
     }
 
-    public T Get(T entity)
+    public virtual T Get(T entity)
     {
         var objectIfExists = this.repository!
             .GetAllNoTracking()
@@ -84,7 +84,7 @@ public class BaseService<T> : IService<T>
         return objectIfExists;
     }
 
-    public async Task<T> GetAsync(T entity)
+    public virtual async Task<T> GetAsync(T entity)
     {
         var objectIfExists = await this.repository!
             .GetAllNoTracking()
@@ -96,7 +96,7 @@ public class BaseService<T> : IService<T>
         return objectIfExists;
     }
 
-    public T Update( int id, T entity )
+    public virtual T Update( int id, T entity )
     {
         var objectIfExists = this.repository!
             .GetAllNoTracking()
@@ -110,7 +110,7 @@ public class BaseService<T> : IService<T>
         return updated;
     }   
 
-    public async Task<T> UpdateAsync( int id, T entity )
+    public virtual async Task<T> UpdateAsync( int id, T entity )
     {
         var objectIfExists = await this.repository!
             .GetAllNoTracking()

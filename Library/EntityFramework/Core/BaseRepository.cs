@@ -13,30 +13,30 @@ public class BaseRepository<T> : IRepository<T>
     protected DbContext context { get; set; }
     protected DbSet<T> table;
 
-    public T Add(T entity)
+    public virtual T Add(T entity)
         => this.table.Add( entity ).Entity;
 
-    public async Task<T> AddAsync(T entity)
+    public virtual async Task<T> AddAsync(T entity)
     {
         var result = await this.table.AddAsync( entity );
         return result.Entity;
     }
-    public IQueryable<T> Get()
+    public virtual IQueryable<T> Get()
         => this.table;
 
-    public IQueryable<T> GetAllNoTracking()
+    public virtual IQueryable<T> GetAllNoTracking()
         => this.table.AsNoTracking();
 
-    public void Remove(T obj)
+    public virtual void Remove(T obj)
         => this.table.Remove( obj );
 
-    public void Save()
+    public virtual void Save()
         => this.context.SaveChanges();
 
-    public Task SaveAsync()
+    public virtual Task SaveAsync()
         => this.context.SaveChangesAsync();
 
-    public T Update(T obj)
+    public virtual T Update(T obj)
         => this.table.Update( obj ).Entity;
 
 }
