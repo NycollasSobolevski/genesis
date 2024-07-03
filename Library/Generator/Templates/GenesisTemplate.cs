@@ -8,15 +8,17 @@ namespace Genesis.Generator.Templates;
 public partial class GenesisTemplate 
 {
 
+    public string DatabaseName { get; set; }
     public string TableName { get; set; }
     protected string Namespace { get; set; }
     public ReadOnlyCollection<DbColumn> TableData { get; set; }
 
 
-    public GenesisTemplate (string tableName, ReadOnlyCollection<DbColumn> data)
+    public GenesisTemplate (string tableName, ReadOnlyCollection<DbColumn> data, string databasename)
     {
         this.TableData = data;
         this.TableName = tableName;
+        this.DatabaseName = databasename;
 
         string baseDirectory = Directory.GetCurrentDirectory();
         string[] csprojFiles = Directory.GetFiles(baseDirectory, "*.csproj", SearchOption.AllDirectories);

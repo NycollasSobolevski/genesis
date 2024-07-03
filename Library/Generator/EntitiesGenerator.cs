@@ -11,12 +11,11 @@ public class EntitiesGenerator
     public string EntityName { get; set; }
     public ReadOnlyCollection<DbColumn> EntityData { get; set; }
     private GenesisTemplate template { get; set; }
-    public EntitiesGenerator(string name, ReadOnlyCollection<DbColumn> template)
+    public EntitiesGenerator(string name, ReadOnlyCollection<DbColumn> entityData, string catalog)
     {
         this.EntityName = name;
-        this.EntityData = template;
-        this.template   = new(this.EntityName, this.EntityData);
-
+        this.EntityData = entityData;
+        this.template   = new(this.EntityName, this.EntityData, catalog);
     }
 
     public void GenerateEntity()

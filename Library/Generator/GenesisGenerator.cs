@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Common;
 using System.IO;
+using Genesis.Generator.Database;
 using Genesis.Generator.Templates;
 using Genesis.Text;
 using Microsoft.Data.SqlClient;
@@ -20,13 +21,19 @@ public partial class GenesisGenerator
 
     public void GenerateCode()
     {
+        DatabaseInfo dbInfo = new(this.ConnectionString);
         var entities = GetEntities();
+
+        ContextGenerator ctxGenerator = new(dbInfo);
+        ctxGenerator.GenerateContext(entities);
+
         string tableName = entities[1];
         TreeGenerator.GenerateTreeByEntity(tableName);
         
         var tabledata = GetTableData(tableName);
 
-        EntitiesGenerator generator = new(tableName, tabledata);
+
+        EntitiesGenerator generator = new(tableName, tabledata, dbInfo.Catalog);
         generator.GenerateEntity();
         generator.GenerateClassMap();
         generator.GenerateRepositoryInterface();
