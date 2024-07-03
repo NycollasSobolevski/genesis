@@ -4,7 +4,7 @@ using Genesis.Domain.Models;
 using Genesis.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-namespace Genesis.Entity.Core.Repositories;
+namespace Genesis.Core.Repositories;
 
 public class BaseRepository<T> : IRepository<T>
     where T : IEntity
@@ -12,6 +12,12 @@ public class BaseRepository<T> : IRepository<T>
 
     protected DbContext context { get; set; }
     protected DbSet<T> table;
+
+    public BaseRepository(DbContext context)
+    {
+        this.context = context;
+        this.table = context.Set<T>();
+    }
 
     public virtual T Add(T entity)
         => this.table.Add( entity ).Entity;

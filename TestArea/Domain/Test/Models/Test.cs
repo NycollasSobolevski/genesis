@@ -2,7 +2,7 @@ using Genesis.Domain.Models;
 
 namespace TestArea.Domain.Models;
 
-public partial class Test : TEntity
+public partial class Test : IEntity
 {
   public string? Code { get; set; }
   public string? Title { get; set; }

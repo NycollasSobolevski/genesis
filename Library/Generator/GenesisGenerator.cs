@@ -21,15 +21,18 @@ public partial class GenesisGenerator
     public void GenerateCode()
     {
         var entities = GetEntities();
-        string tableName = TextManipulator.ToPascalCase(entities[1]);
+        string tableName = entities[1];
         TreeGenerator.GenerateTreeByEntity(tableName);
         
         var tabledata = GetTableData(tableName);
 
-        GenesisTemplate template = new(tableName, tabledata);
-        string classTemplate = template.GetClassTemplate();
         EntitiesGenerator generator = new(tableName, tabledata);
         generator.GenerateEntity();
+        generator.GenerateClassMap();
+        generator.GenerateRepositoryInterface();
+        generator.GenerateServiceInterface();
+        generator.GenerateRepository();
+        generator.GenerateService();
     }
 
     public List<string> GetEntities()

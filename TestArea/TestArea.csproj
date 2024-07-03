@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AspNetCore.Genesis" Version="0.0.1" />
+    <ProjectReference Include="../Library/Genesis.csproj" />
   </ItemGroup>
 
 </Project>

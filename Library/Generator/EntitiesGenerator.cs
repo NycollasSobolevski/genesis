@@ -21,33 +21,114 @@ public class EntitiesGenerator
 
     public void GenerateEntity()
     {
-        string baseDirectory = Directory.GetCurrentDirectory();
-        string directory = @$"\Domain\{EntityName}\Models\{EntityName}.cs";    
-        directory = baseDirectory + directory;
+        try
+        {
 
-        string classTemplate = template.GetClassTemplate();
+            string filename = $"{EntityName}.cs";
+            string baseDirectory = Directory.GetCurrentDirectory();
+            string directory = @$"\Domain\{EntityName}\Models\{filename}";    
+            directory = baseDirectory + directory;
 
-        File.WriteAllText(directory, classTemplate);
+            string classTemplate = template.GetClassTemplate();
 
-        Verbose.Info($"Creating {EntityName} file");
-        Verbose.Info(directory);
+            Verbose.Info($"Creating {filename} file");
+            File.WriteAllText(directory, classTemplate);
+            Verbose.Success("File created successfuly");
+
+        } catch (Exception e) 
+        {
+            Verbose.Danger($"Error on create file {this.EntityName}.cs\n {e}");
+        }
     }
-
-
     public void GenerateRepositoryInterface()
     {
-        // try
-        // {
-        //     string baseDirectory = Directory.GetCurrentDirectory();
-        //     string directory = @$"\Domain\{EntityName}\Repositories\I{EntityName}Repository.cs";    
-        //     directory = baseDirectory + directory;
-        //     Verbose.Info($"Creating {this.EntityName} file");
+        string filename = $"I{EntityName}Repository.cs";
+        string baseDirectory = Directory.GetCurrentDirectory();
+        string directory = @$"\Domain\{EntityName}\Repositories\{filename}";    
+        try
+        {
+            directory = baseDirectory + directory;
 
-        //     File.WriteAllText(directory, this.Template);
+            string template = this.template.GetIRepositoryTemplate();
 
-        //     Verbose.Info(this.EntityName);
-        // } catch (Exception e) {
-        //     Verbose.Danger($"Error on create file {this.EntityName}.cs");
-        // }
+            Verbose.Info($"Creating {filename} file");
+            File.WriteAllText(directory, template);
+
+            Verbose.Success("File created successfuly");
+        } catch (Exception e) {
+            Verbose.Danger($"Error on create file \"{directory}\"\n {e}");
+        }
     }
+    public void GenerateRepository()
+    {
+        string filename = $"{EntityName}Repository.cs";
+        string baseDirectory = Directory.GetCurrentDirectory();
+        string directory = @$"\Core\{EntityName}\Repository\{filename}";
+        try
+        {
+            directory = baseDirectory + directory;
+            string template = this.template.GetRepositoryTemplate();
+
+            Verbose.Info($"Creating {filename} file");
+            File.WriteAllText(directory, template);
+
+            Verbose.Success("File created successfuly");
+        } catch (Exception e) {
+            Verbose.Danger($"Error on create file \"{directory}\"\n {e}");
+        }
+    }
+    public void GenerateServiceInterface()
+    {
+        string filename = $"I{EntityName}Service.cs";
+        string baseDirectory = Directory.GetCurrentDirectory();
+        string directory = @$"\Domain\{EntityName}\Services\{filename}";    
+        try
+        {
+            directory = baseDirectory + directory;
+            string template = this.template.GetIServiceTemplate();
+
+            Verbose.Info($"Creating {filename} file");
+            File.WriteAllText(directory, template);
+
+            Verbose.Success("File created successfuly");
+        } catch (Exception e) {
+            Verbose.Danger($"Error on create file \"{directory}\"\n {e}");
+        }
+    }
+    public void GenerateService()
+    {
+        string baseDirectory = Directory.GetCurrentDirectory();
+        string filename = $"{EntityName}Service.cs";
+        string directory = @$"\Core\{EntityName}\Service\{filename}";    
+        try
+        {
+            directory = baseDirectory + directory;
+            string template = this.template.GetServiceTemplate();
+
+            Verbose.Info($"Creating {filename} file");
+            File.WriteAllText(directory, template);
+
+            Verbose.Success("File created successfuly");
+        } catch (Exception e) {
+            Verbose.Danger($"Error on create file \"{directory}\"\n {e}");
+        }
+    }
+    public void GenerateClassMap()
+    {
+        string baseDirectory = Directory.GetCurrentDirectory();
+        string directory = @$"\Core\{EntityName}\Mapping\{EntityName}ClassMap.cs";    
+        try
+        {
+            directory = baseDirectory + directory;
+            string template = this.template.GetClassMap();
+
+            Verbose.Info($"Creating {this.EntityName} file");
+            File.WriteAllText(directory, template);
+
+            Verbose.Success("File created successfuly");
+        } catch (Exception e) {
+            Verbose.Danger($"Error on create file \"{directory}\"\n {e}");
+        }
+    }
+    
 }
