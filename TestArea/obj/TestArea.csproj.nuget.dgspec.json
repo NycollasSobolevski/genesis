@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\Library\\Genesis.csproj": {
-      "version": "0.0.1",
+      "version": "1.0.3",
       "restore": {
         "projectUniqueName": "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\Library\\Genesis.csproj",
         "projectName": "AspNetCore.Genesis",

@@ -1,2 +1,3 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿string path = "./example.xml";
+XMLManipulator manipulator = new(path);
+await manipulator.ReadAsync();

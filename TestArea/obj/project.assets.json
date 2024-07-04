@@ -836,7 +836,7 @@
           "lib/netcoreapp2.1/_._": {}
         }
       },
-      "AspNetCore.Genesis/0.0.1": {
+      "AspNetCore.Genesis/1.0.3": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
@@ -2365,7 +2365,7 @@
         "version.txt"
       ]
     },
-    "AspNetCore.Genesis/0.0.1": {
+    "AspNetCore.Genesis/1.0.3": {
       "type": "project",
       "path": "../Library/Genesis.csproj",
       "msbuildProject": "../Library/Genesis.csproj"
@@ -2373,7 +2373,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "AspNetCore.Genesis >= 0.0.1"
+      "AspNetCore.Genesis >= 1.0.3"
     ]
   },
   "packageFolders": {
