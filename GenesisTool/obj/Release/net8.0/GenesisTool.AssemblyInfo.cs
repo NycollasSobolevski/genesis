@@ -10,10 +10,10 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("GenesisTool")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Nycollas Wenndy Sobolevski")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4bb86a17f34bd6ed825010639f3779b4e4bde8d8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb828ae1585691e6e31b77b9e0b705a38f49696e")]
 [assembly: System.Reflection.AssemblyProductAttribute("GenesisTool")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GenesisTool")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

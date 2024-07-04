@@ -3,6 +3,7 @@ C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\bin\Release\net
 C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\bin\Release\net8.0\GenesisTool.runtimeconfig.json
 C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\bin\Release\net8.0\GenesisTool.dll
 C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\bin\Release\net8.0\GenesisTool.pdb
+C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\bin\Release\net8.0\Genesis.dll
 C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\bin\Release\net8.0\Azure.Core.dll
 C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\bin\Release\net8.0\Azure.Identity.dll
 C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\bin\Release\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
@@ -55,8 +56,6 @@ C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\bin\Release\net
 C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\bin\Release\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.Messages.dll
 C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\bin\Release\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
 C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\bin\Release\net8.0\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
-C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\bin\Release\net8.0\Genesis.dll
-C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\bin\Release\net8.0\Genesis.pdb
 C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\obj\Release\net8.0\GenesisTool.csproj.AssemblyReference.cache
 C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\obj\Release\net8.0\GenesisTool.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\obj\Release\net8.0\GenesisTool.AssemblyInfoInputs.cache

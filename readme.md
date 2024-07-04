@@ -23,7 +23,7 @@ iniciando um projeto
 
 Inserindo a tool
 ```bash
->
+> dotnet add package --global AspNetCore.GenesisTool
 ```
 
 Inserindo a Biblioteca
@@ -99,3 +99,6 @@ Temos tambem uma base para Repositorio e Serviços, de forma genérica que inici
 - **BaseRepository.cs**: Base de repositorio genérico que implementa *IRepository<T>*, que executa a comuicação com o banco para a tabela de determinada entidade (<T>) que obrigatóriamente herda de IEntity junto com o contexto do banco de dados.
 
 - **BaseService.cs**: Base de serviço genérico que implementa *IService<T>*, onde recebe um *BaseRepository<T>* para qual vai executar seus serviços básicos de cominicação com os repositorios. 
+
+Learn More:
+- [Genesis Library Use](https://github.com/NycollasSobolevski/genesis/blob/master/Library/README.md)
