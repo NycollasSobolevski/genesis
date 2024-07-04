@@ -16,7 +16,12 @@ public class DatabaseInfo
             .ToList();
 
         this.DataSource = values[0][1];
-        this.Catalog = values[2][1];
+        this.Catalog = values[1][1];
+
+        System.Console.WriteLine($"Source={DataSource}");
+        System.Console.WriteLine($"Catalog={Catalog}");
+        System.Console.WriteLine($"Connection={StringConnection}");
+
         this.StringConnection = stringConnection;
     }
 }

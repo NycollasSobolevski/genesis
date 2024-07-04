@@ -8,9 +8,7 @@ public static class TextManipulator
         string[] list = text.Split( text.Contains('-') ? "-" : text.Contains('_') ? "_" : "." );
         string result = "";
         foreach (var item in list )
-        {
             result += TextManipulator.ToSingleTitle(item);
-        }
 
         return result;
     }

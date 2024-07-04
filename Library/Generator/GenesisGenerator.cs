@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Common;
 using System.IO;
+using System.Linq;
 using Genesis.Generator.Database;
 using Genesis.Generator.Templates;
 using Genesis.Text;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Logging;
 
 namespace Genesis.Generator;
 
@@ -21,25 +23,30 @@ public partial class GenesisGenerator
 
     public void GenerateCode()
     {
-        DatabaseInfo dbInfo = new(this.ConnectionString);
-        var entities = GetEntities();
+        try{
+            DatabaseInfo dbInfo = new(this.ConnectionString);
+            var entities = GetEntities();
+            TreeGenerator.GenerateBaseTree();
+            ContextGenerator ctxGenerator = new(dbInfo);
+            ctxGenerator.GenerateContext(entities);
 
-        ContextGenerator ctxGenerator = new(dbInfo);
-        ctxGenerator.GenerateContext(entities);
+            foreach (var tableName in entities)
+            {
+                TreeGenerator.GenerateTreeByEntity(tableName);
+                
+                var tabledata = GetTableData(tableName);
 
-        string tableName = entities[1];
-        TreeGenerator.GenerateTreeByEntity(tableName);
-        
-        var tabledata = GetTableData(tableName);
-
-
-        EntitiesGenerator generator = new(tableName, tabledata, dbInfo.Catalog);
-        generator.GenerateEntity();
-        generator.GenerateClassMap();
-        generator.GenerateRepositoryInterface();
-        generator.GenerateServiceInterface();
-        generator.GenerateRepository();
-        generator.GenerateService();
+                EntitiesGenerator generator = new(tableName, tabledata, dbInfo.Catalog);
+                generator.GenerateEntity();
+                generator.GenerateClassMap();
+                generator.GenerateRepositoryInterface();
+                generator.GenerateServiceInterface();
+                generator.GenerateRepository();
+                generator.GenerateService();
+            }
+        } catch(Exception e) {
+            Verbose.Danger($"Error on generate context\n {e}");
+        }
     }
 
     public List<string> GetEntities()
@@ -60,7 +67,11 @@ public partial class GenesisGenerator
             using SqlDataReader reader = command.ExecuteReader();
             while(reader.Read())
             {
-                tables.Add(reader[0].ToString());
+                string table = reader[0].ToString();
+                if(table is "__EFMigrationsHistory" or "sysdiagrams")
+                    continue;
+
+                tables.Add(table);
             }
 
             return tables;
@@ -84,22 +95,20 @@ public partial class GenesisGenerator
 
             Verbose.Success("Conection successfully!");
 
-            string selectTables = $"select top 1 * from {table}";
+            string selectTables = $"select top 1 * from [{table}]";
 
             using SqlCommand command = new(selectTables, connection);
             using SqlDataReader reader = command.ExecuteReader();
             var schema = reader.GetColumnSchema();
-            
+
             return schema;
         }
         catch( Exception e )
         {
-
             Verbose.Danger("error on Connection");
             Verbose.Danger(e);
+            Environment.Exit(0);
             throw new Exception();
         }
-    }
-
-    
+    }  
 }

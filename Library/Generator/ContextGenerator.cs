@@ -28,15 +28,14 @@ public class ContextGenerator
             string directory = @$"\Core\{filename}";    
             directory = baseDirectory + directory;
 
-            string contextContent = this.template.GetContext(entities, this.databaseInfo.StringConnection);
-
             Verbose.Info("Creating context....");
+            string contextContent = this.template.GetContext(entities, this.databaseInfo.StringConnection);
             File.WriteAllText(directory, contextContent);
             Verbose.Success("Context created successfuly");
 
 
         }catch (Exception e) {
-            Verbose.Danger($"Error on generate context\n {e}");
+            throw new Exception($"Error on generate context \n {e}");
         }
     }
 }

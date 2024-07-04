@@ -36,7 +36,7 @@ public partial class GenesisTemplate
         stringBuilder.AppendLine();
         stringBuilder.Append("public class ");
         stringBuilder.Append(tableName);
-        stringBuilder.AppendLine($$"""Repository(DbContext context) """);
+        stringBuilder.AppendLine($$"""Repository({{this.GetContextName()}} context) """);
         stringBuilder.AppendLine($$"""    : BaseRepository<{{tableName}}>(context), I{{tableName}}Repository""");
         stringBuilder.AppendLine("{");
         stringBuilder.AppendLine("\n}");        

@@ -13,7 +13,9 @@ public partial class GenesisTemplate
         string contextName = $"{this.DatabaseName}Context";
 
         stringBuilder.AppendLine($"using Microsoft.EntityFrameworkCore;\n");
-        stringBuilder.AppendLine($"namespace {this.Namespace}.Core.Context;\n");
+        stringBuilder.AppendLine($"using {this.Namespace}.Core.Mapping;\n");
+        stringBuilder.AppendLine($"using {this.Namespace}.Domain.Models;\n");
+        stringBuilder.AppendLine($"namespace {this.Namespace}.Core;\n");
         stringBuilder.AppendLine($"public partial class {contextName} : DbContext");
         stringBuilder.AppendLine( "{");
         stringBuilder.AppendLine($$"""    public {{contextName}}() {}""");
@@ -23,10 +25,13 @@ public partial class GenesisTemplate
         stringBuilder.AppendLine( "    {}");
 
         foreach (var entity in tables)
+        {
+            System.Console.WriteLine(entity);
             stringBuilder.AppendLine($$"""    public virtual DbSet<{{TextManipulator.ToPascalCase(entity)}}> {{TextManipulator.ToPascalCase(entity)}}List { get; set; }""");
+        }
         
         stringBuilder.AppendLine( "    protected override void OnConfiguring (DbContextOptionsBuilder optionsBuilder)");
-        stringBuilder.AppendLine( $"        => optionsBuilder.UseSqlServer(\"{stringConnection}\")");
+        stringBuilder.AppendLine( $"        => optionsBuilder.UseSqlServer(@\"{stringConnection}\");");
 
         stringBuilder.AppendLine( "    protected override void OnModelCreating(ModelBuilder modelBuilder)");
         stringBuilder.AppendLine( "    {");
@@ -44,4 +49,7 @@ public partial class GenesisTemplate
         
         return stringBuilder.ToString();
     }
+
+    public string GetContextName ()
+        => $"{this.DatabaseName}Context";
 }

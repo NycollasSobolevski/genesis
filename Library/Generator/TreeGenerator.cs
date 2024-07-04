@@ -23,4 +23,20 @@ public class TreeGenerator
             Directory.CreateDirectory(path);
         }
     }
+
+    public static void GenerateBaseTree()
+    {
+        string baseDirectory = Directory.GetCurrentDirectory();
+        string[] directories = [
+            $@"{baseDirectory}\Domain",
+            $@"{baseDirectory}\Core",
+        ];
+
+        foreach (var path in directories)
+        {
+            if(Directory.Exists(path))
+                continue;
+            Directory.CreateDirectory(path);
+        }
+    }
 }

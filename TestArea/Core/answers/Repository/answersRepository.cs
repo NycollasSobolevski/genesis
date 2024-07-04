@@ -4,8 +4,8 @@ using TestArea.Domain.Models;
 
 namespace TestArea.Core.Repositories;
 
-public class TestRepository(CNCTestContext context) 
-    : BaseRepository<Test>(context), ITestRepository
+public class AnswersRepository(CNCTestContext context) 
+    : BaseRepository<Answers>(context), IAnswersRepository
 {
 
 }

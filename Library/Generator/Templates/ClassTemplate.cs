@@ -64,21 +64,6 @@ public partial class GenesisTemplate
 
             stringBuilder.AppendLine($"            .HasColumnName(\"{column.ColumnName}\");");
             stringBuilder.AppendLine();
-
-            System.Console.WriteLine("----------------------------------------------");
-            System.Console.WriteLine(column.AllowDBNull);
-            System.Console.WriteLine(column.BaseCatalogName);
-            System.Console.WriteLine(column.BaseColumnName);
-            System.Console.WriteLine(column.BaseSchemaName);
-            System.Console.WriteLine(column.BaseServerName);
-            System.Console.WriteLine(column.BaseTableName);
-            System.Console.WriteLine(column.ColumnName);
-            System.Console.WriteLine(column.ColumnOrdinal);
-            System.Console.WriteLine(column.ColumnSize);
-            System.Console.WriteLine(column.DataType);
-            System.Console.WriteLine(column.DataTypeName);
-            System.Console.WriteLine(column.GetType());
-            System.Console.WriteLine("----------------------------------------------");
         }
 
         stringBuilder.AppendLine( "    }");
