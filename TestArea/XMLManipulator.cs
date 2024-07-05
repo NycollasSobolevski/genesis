@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -22,11 +23,16 @@ public class XMLManipulator
 
         string[] lines = await File.ReadAllLinesAsync(this.filePath);
         
-        var tags = getTagContent(new (lines));
 
-        foreach (var item in tags)
+        var sla = getTagContent(new(lines));
+
+        string xmlPatern = @"<[^>]+>[^<]*<\/[^>]+>";
+
+        string[] contents = sla.Content.ToString().Split("<");
+
+        foreach (Match match in Regex.Matches(sla.Content, xmlPatern))
         {
-            
+            System.Console.WriteLine(match);
         }
 
         return content;
@@ -39,34 +45,30 @@ public class XMLManipulator
         return tag;
     }
 
-
-    private List<Tag> getTagContent(List<string> lines)
+    private Tag getTagContent(List<string> lines)
     {
-        // for (int i = 0; i < lines.Length; i++)
-        // {
-            int i = 2;
-            string tagAttribute = getTagName(lines[i]);
-            string tagName = tagAttribute.Split(" ")[0];
-            int linesInnerTag = 0;
-            List<List<Tag>> content = [];
-            System.Console.WriteLine(tagName);
-            for (int j = i; j < lines.Count; j++)
+        int i = 0;
+        string tagString = lines[i];
+        string name = getTagName(tagString);
+        StringBuilder content = new();
+
+        int linesInContent = 0;
+        for (int j = i; j < lines.Count; j++)
+        {
+            if(Regex.IsMatch(lines[j], $@"</{name}"))
             {
-                if(Regex.IsMatch(lines[j], $@"<\/{tagName}"))
-                {
-                    if(linesInnerTag == 0)
-                    {
-                        return [new(tagName, lines[j])];
-                    }
-                    else 
-                    {
-                        content.Add(getTagContent(lines.GetRange(i, linesInnerTag)));
-                        return getTagContent(lines.GetRange(i, linesInnerTag));
-                    }
-                }
-                linesInnerTag++;
+                if(linesInContent == 0)
+                    content.Append(tagString.Split(">")[1].Split(@"</")[0]);
+                break;
             }
-            throw new Exception("Invalid XML file ");
-        // }
+            content.Append(lines[j]);
+        }
+
+        return new(name, content.ToString());
+    }
+
+    private int getEndOfTag(int start, string[] content)
+    {
+        return 0;
     }
 }
