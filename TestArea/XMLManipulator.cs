@@ -79,30 +79,26 @@ public class XMLManipulator
 
         XmlNode main = xmlDoc.DocumentElement!;
 
-        List<XmlElement> elements = [];
-
         foreach (var element in content)
-        {
-            XmlElement tag = xmlDoc.CreateElement(element.Name);
-            foreach (var @params in element.Params)
-                tag.SetAttribute(@params.Key, @params.Value);
+            main.AppendChild( TagToXml(xmlDoc, element));
 
-            if(element.Content is string and not null) 
-                tag.InnerText = element.Content.ToString()!;
-            else if(element.Content is IEnumerable<Tag> and not null)
-                foreach (var item in (IEnumerable<Tag>)element.Content)
-                {
-                    XmlElement child =  xmlDoc.CreateElement(item.Name);
-                }
-                
-            main.AppendChild(tag);
-        } 
         xmlDoc.Save(this.filePath);
     }
 
-
-    public XmlElement TagToXml(XmlNode node, Tag tag)
+    public static XmlElement TagToXml(XmlDocument doc, Tag tag)
     {
-        
+        XmlElement element = doc.CreateElement(tag.Name);
+
+        foreach (var param in tag.Params)
+            element.SetAttribute(param.Key, param.Value);
+
+        if (tag.Content is string content)
+            element.InnerText = content;
+        else if (tag.Content is IEnumerable<Tag> tags)
+            foreach (var childTag in tags)
+                element.AppendChild(TagToXml(doc, childTag));
+        return element;
+
     }
+
 }

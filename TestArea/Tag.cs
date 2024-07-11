@@ -48,20 +48,18 @@ public class Tag
             stBuilder.Append($""" {item.Key}="{item.Value}" """);
         if(this.Content != "")
         {
+            System.Console.WriteLine($"Content: {this.Content}");
             stBuilder.AppendLine($""">""");
 
             if(Content is IEnumerable<Tag>)
                 foreach (var item in (IEnumerable<Tag>)this.Content )
-                {
                     stBuilder.AppendLine(item.ToString());
-                }
             else
                 stBuilder.AppendLine($"""  {this.Content.ToString()}""");
             stBuilder.AppendLine($@"</{this.Name}>");
         }
         else
             stBuilder.Append(@"/>");
-
         
         return stBuilder.ToString();
     }
