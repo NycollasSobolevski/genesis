@@ -111,4 +111,10 @@ public partial class GenesisGenerator
             throw new Exception();
         }
     }  
+
+    public static void AddToProject()
+    {
+        
+    }
+
 }
