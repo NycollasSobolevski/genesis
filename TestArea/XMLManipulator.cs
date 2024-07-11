@@ -98,7 +98,18 @@ public class XMLManipulator
             foreach (var childTag in tags)
                 element.AppendChild(TagToXml(doc, childTag));
         return element;
+    }
 
+    public bool VerifyPackageReference(string include, string version)
+    {
+        var packages = this.GetPackages();
+
+        foreach (var item in packages)
+            if(item.Params["Include"] == include)
+                if(item.Params["Version"] == version)
+                    return true;
+
+        return false;
     }
 
 }

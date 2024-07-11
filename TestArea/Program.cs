@@ -15,9 +15,9 @@ List<Tag> newPackages = [
     )
 ];
 
-
-Tag itemgroup = new("ItemGroup", newPackages, null);
-
-System.Console.WriteLine(itemgroup.ToString());
-
-manipulator.AddTags([itemgroup]);
+bool hasPakcage = manipulator.VerifyPackageReference("AspNetCore.Genesis","1.0.3");
+if(!hasPakcage)
+{
+    Tag itemgroup = new("ItemGroup", newPackages, null);
+    manipulator.AddTags([itemgroup]);
+}

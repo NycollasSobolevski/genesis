@@ -19,10 +19,4 @@
   <ItemGroup>
     <PackageReference Include="AspNetCore.Genesis" Version="1.0.3" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="AspNetCore.Genesis" Version="1.0.3" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="AspNetCore.Genesis" Version="1.0.3" />
-  </ItemGroup>
 </Project>

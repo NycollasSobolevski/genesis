@@ -42,7 +42,7 @@ public class Tag
         stBuilder.Append($"<{this.Name}");
         foreach (var item in this.Params)
             stBuilder.Append($""" {item.Key}="{item.Value}" """);
-        if(this.Content != "")
+        if(this.Content.ToString() != "")
         {
             System.Console.WriteLine($"Content: {this.Content}");
             stBuilder.AppendLine($""">""");
