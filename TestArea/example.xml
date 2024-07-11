@@ -17,7 +17,12 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.3" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="AspNetCore.Genesis" Version="1.0.3">
-    </PackageReference>
+    <PackageReference Include="AspNetCore.Genesis" Version="1.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.Genesis" Version="1.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.Genesis" Version="1.0.3" />
   </ItemGroup>
 </Project>

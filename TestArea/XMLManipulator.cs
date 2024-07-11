@@ -92,8 +92,8 @@ public class XMLManipulator
         foreach (var param in tag.Params)
             element.SetAttribute(param.Key, param.Value);
 
-        if (tag.Content is string content)
-            element.InnerText = content;
+        if (tag.Content is string and not "")
+            element.InnerText = (string)tag.Content;
         else if (tag.Content is IEnumerable<Tag> tags)
             foreach (var childTag in tags)
                 element.AppendChild(TagToXml(doc, childTag));

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\TestArea\\TestArea.csproj": {}
+    "C:\\Users\\son5ct\\Desktop\\Projects\\api-genesis\\TestArea\\TestArea.csproj": {}
   },
   "projects": {
-    "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\Library\\Genesis.csproj": {
+    "C:\\Users\\son5ct\\Desktop\\Projects\\api-genesis\\Library\\Genesis.csproj": {
       "version": "1.0.3",
       "restore": {
-        "projectUniqueName": "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\Library\\Genesis.csproj",
+        "projectUniqueName": "C:\\Users\\son5ct\\Desktop\\Projects\\api-genesis\\Library\\Genesis.csproj",
         "projectName": "AspNetCore.Genesis",
-        "projectPath": "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\Library\\Genesis.csproj",
+        "projectPath": "C:\\Users\\son5ct\\Desktop\\Projects\\api-genesis\\Library\\Genesis.csproj",
         "packagesPath": "C:\\Users\\son5ct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\Library\\obj\\",
+        "outputPath": "C:\\Users\\son5ct\\Desktop\\Projects\\api-genesis\\Library\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\son5ct\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -74,18 +74,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\TestArea\\TestArea.csproj": {
+    "C:\\Users\\son5ct\\Desktop\\Projects\\api-genesis\\TestArea\\TestArea.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\TestArea\\TestArea.csproj",
+        "projectUniqueName": "C:\\Users\\son5ct\\Desktop\\Projects\\api-genesis\\TestArea\\TestArea.csproj",
         "projectName": "TestArea",
-        "projectPath": "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\TestArea\\TestArea.csproj",
+        "projectPath": "C:\\Users\\son5ct\\Desktop\\Projects\\api-genesis\\TestArea\\TestArea.csproj",
         "packagesPath": "C:\\Users\\son5ct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\TestArea\\obj\\",
+        "outputPath": "C:\\Users\\son5ct\\Desktop\\Projects\\api-genesis\\TestArea\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\son5ct\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -100,8 +100,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\Library\\Genesis.csproj": {
-                "projectPath": "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\Library\\Genesis.csproj"
+              "C:\\Users\\son5ct\\Desktop\\Projects\\api-genesis\\Library\\Genesis.csproj": {
+                "projectPath": "C:\\Users\\son5ct\\Desktop\\Projects\\api-genesis\\Library\\Genesis.csproj"
               }
             }
           }
@@ -136,7 +136,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

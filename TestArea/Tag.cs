@@ -35,10 +35,6 @@ public class Tag
         this.IsEndTree = false;
     }
 
-    public string getInnerTags()
-    {
-        return "";
-    }
 
     public override string ToString()
     {
