@@ -10,6 +10,8 @@ using System.Xml;
 using System.Xml.Linq;
 
 
+namespace Genesis.Text.XML;
+
 public class XMLManipulator
 {
     private string filePath { get; set; }

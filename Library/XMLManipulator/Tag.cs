@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using System.Text;
 
+namespace Genesis.Text.XML;
 
 public class Tag
 {

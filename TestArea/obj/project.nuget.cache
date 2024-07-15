@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5bMU5Z6nCJUS9fPmnrGAOID8jwumEqSm8NEP15Avo/e/q7K0KIJXjTR0wWUMkMwIUviSTciTAN34kluRTU014w==",
+  "dgSpecHash": "SQ8H3nIAMUo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\son5ct\\Desktop\\Projects\\api-genesis\\TestArea\\TestArea.csproj",
+  "projectFilePath": "C:\\Users\\son5ct\\Desktop\\genesis\\TestArea\\TestArea.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\son5ct\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\son5ct\\.nuget\\packages\\azure.identity\\1.11.3\\azure.identity.1.11.3.nupkg.sha512",

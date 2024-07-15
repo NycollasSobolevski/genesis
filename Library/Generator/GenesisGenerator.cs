@@ -4,12 +4,20 @@ using System.Collections.ObjectModel;
 using System.Data.Common;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Net.Http.Json;
+using System.Reflection.Metadata.Ecma335;
+using System.Text.Json;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using Genesis.Generator.Database;
 using Genesis.Generator.Templates;
 using Genesis.Text;
+using Genesis.Text.XML;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Logging;
-
 namespace Genesis.Generator;
 
 public partial class GenesisGenerator
@@ -112,9 +120,90 @@ public partial class GenesisGenerator
         }
     }  
 
-    public static void AddToProject()
+    public async static void AddGenesisToProject()
     {
+        string path = getProjectPath();
+        XMLManipulator manipulator = new(path);
+        await manipulator.ReadAsync();
+
+        string latestVersion = await GetLatestVersion();
+
+        bool hasPakcage = manipulator.VerifyPackageReference("AspNetCore.Genesis", latestVersion);
+
+        if(hasPakcage)
+            return;
+
+        List<Tag> newPackages = [
+            new(
+                "PackageReference",
+                "",
+                new(){
+                    {"Include","AspNetCore.Genesis"},
+                    {"Version", latestVersion}
+                }
+            )
+        ];
+
+        Tag itemgroup = new("ItemGroup", newPackages, null);
+        manipulator.AddTags([itemgroup]);
+    }
+
+    public static string  getProjectPath ()
+    {
+        string baseDirectory = Directory.GetCurrentDirectory();
+        string pattern = @"\.csproj$";
+        var files = Directory.GetFiles(baseDirectory);
+        string projFile = files.First(f => Regex.IsMatch(f, pattern)).Replace("./","");
+        projFile = Path.Combine(baseDirectory, projFile);
         
+        return projFile;
+    }
+
+    public static async Task<string> GetLatestVersion()
+    {
+        string url = @"https://api.nuget.org/v3-flatcontainer/AspNetCore.Genesis/index.json";
+        var proxy = new WebProxy
+        {
+            Address = new Uri("http://10.224.200.26:8080"),
+            BypassProxyOnLocal = false,
+            UseDefaultCredentials = false,
+            Credentials = new NetworkCredential(
+                userName: "disrct",
+                password: "etsps2024401"
+            )
+        };
+
+        var httpClientHandler = new HttpClientHandler
+        {
+            Proxy = proxy,
+            PreAuthenticate = true,
+            UseDefaultCredentials = false
+        };
+        using HttpClient client = new(httpClientHandler);
+
+        HttpResponseMessage response;   
+        response = await client.GetAsync(url);
+        System.Console.WriteLine(response.StatusCode);
+
+        var hea = response.RequestMessage;
+        System.Console.WriteLine(hea);
+        // foreach (var ap in hea)
+        // {
+        //     System.Console.WriteLine($"{ap.Key} - {ap.Value}");
+        // }
+
+        var responseContent = await response.Content.ReadAsStringAsync();
+
+        System.Console.WriteLine(responseContent);
+
+        NugetPackageVersions content = JsonSerializer.Deserialize<NugetPackageVersions>(responseContent);
+
+        foreach (var version in content.Versions)
+            System.Console.WriteLine(version);
+
+
+
+        return content.Versions.Last();
     }
 
 }
