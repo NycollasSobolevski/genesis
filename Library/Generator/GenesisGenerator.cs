@@ -53,6 +53,9 @@ public partial class GenesisGenerator
                 generator.GenerateRepository();
                 generator.GenerateService();
             }
+
+            AddGenesisToProject().Wait();
+
         } catch(Exception e) {
             Verbose.Danger($"Error on generate context\n {e}");
         }
@@ -121,15 +124,16 @@ public partial class GenesisGenerator
         }
     }  
 
-    public async static void AddGenesisToProject()
+    public async static Task AddGenesisToProject()
     {
-        string path = getProjectPath();
+        string path = GetProjectPath();
         XMLManipulator manipulator = new(path);
         await manipulator.ReadAsync();
 
         string latestVersion = await GetLatestVersion();
 
         bool hasPakcage = manipulator.VerifyPackageReference("AspNetCore.Genesis", latestVersion);
+        System.Console.WriteLine($"Pagckage reference exists: {hasPakcage}");
 
         if(hasPakcage)
             return;
@@ -149,7 +153,7 @@ public partial class GenesisGenerator
         manipulator.AddTags([itemgroup]);
     }
 
-    public static string  getProjectPath ()
+    public static string GetProjectPath ()
     {
         string baseDirectory = Directory.GetCurrentDirectory();
         string pattern = @"\.csproj$";
@@ -157,6 +161,8 @@ public partial class GenesisGenerator
         string projFile = files.First(f => Regex.IsMatch(f, pattern)).Replace("./","");
         projFile = Path.Combine(baseDirectory, projFile);
         
+        System.Console.WriteLine($"Project: {projFile}");
+
         return projFile;
     }
 

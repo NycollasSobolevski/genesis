@@ -10,8 +10,12 @@
     <Authors>Nycollas Wenndy Sobolevski</Authors>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="AspNetCore.Genesis" Version="1.0.3" />
-  </ItemGroup>
+  <!-- <ItemGroup> -->
+    <!-- <PackageReference Include="AspNetCore.Genesis" Version="1.0.3" /> -->
 
+  <!-- </ItemGroup> -->
+
+  <ItemGroup>
+    <ProjectReference Include="../Library/Genesis.csproj" />
+  </ItemGroup>
 </Project>
