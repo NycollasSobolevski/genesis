@@ -18,6 +18,7 @@ using Genesis.Text;
 using Genesis.Text.XML;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Logging;
+
 namespace Genesis.Generator;
 
 public partial class GenesisGenerator
@@ -161,7 +162,7 @@ public partial class GenesisGenerator
 
     public static async Task<string> GetLatestVersion()
     {
-        string url = @"https://api.nuget.org/v3-flatcontainer/AspNetCore.Genesis/index.json";
+        string url = @"https://api.nuget.org/v3-flatcontainer/aspnetcore.genesis/index.json";
         var proxy = new WebProxy
         {
             Address = new Uri("http://10.224.200.26:8080"),
@@ -183,25 +184,10 @@ public partial class GenesisGenerator
 
         HttpResponseMessage response;   
         response = await client.GetAsync(url);
-        System.Console.WriteLine(response.StatusCode);
-
-        var hea = response.RequestMessage;
-        System.Console.WriteLine(hea);
-        // foreach (var ap in hea)
-        // {
-        //     System.Console.WriteLine($"{ap.Key} - {ap.Value}");
-        // }
 
         var responseContent = await response.Content.ReadAsStringAsync();
 
-        System.Console.WriteLine(responseContent);
-
-        NugetPackageVersions content = JsonSerializer.Deserialize<NugetPackageVersions>(responseContent);
-
-        foreach (var version in content.Versions)
-            System.Console.WriteLine(version);
-
-
+        var content = JsonSerializer.Deserialize<NugetPackageVersions>(responseContent);
 
         return content.Versions.Last();
     }

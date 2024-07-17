@@ -16,7 +16,7 @@ public class XMLManipulator
 {
     private string filePath { get; set; }
 
-    private string[]? content { get; set; }
+    private string[] content { get; set; }
 
     public XMLManipulator(string path)
         => this.filePath = path;

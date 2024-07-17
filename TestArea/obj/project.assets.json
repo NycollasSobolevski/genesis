@@ -2382,11 +2382,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\son5ct\\Desktop\\genesis\\TestArea\\TestArea.csproj",
+      "projectUniqueName": "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\TestArea\\TestArea.csproj",
       "projectName": "TestArea",
-      "projectPath": "C:\\Users\\son5ct\\Desktop\\genesis\\TestArea\\TestArea.csproj",
+      "projectPath": "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\TestArea\\TestArea.csproj",
       "packagesPath": "C:\\Users\\son5ct\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\son5ct\\Desktop\\genesis\\TestArea\\obj\\",
+      "outputPath": "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\TestArea\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\son5ct\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -2401,8 +2401,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\son5ct\\Desktop\\genesis\\Library\\Genesis.csproj": {
-              "projectPath": "C:\\Users\\son5ct\\Desktop\\genesis\\Library\\Genesis.csproj"
+            "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\Library\\Genesis.csproj": {
+              "projectPath": "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\Library\\Genesis.csproj"
             }
           }
         }
