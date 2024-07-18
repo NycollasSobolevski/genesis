@@ -126,31 +126,41 @@ public partial class GenesisGenerator
 
     public async static Task AddGenesisToProject()
     {
-        string path = GetProjectPath();
-        XMLManipulator manipulator = new(path);
-        await manipulator.ReadAsync();
+        Verbose.Info("Add AspNetCore.Genesis to .csproj");
+        try
+        {
+            string path = GetProjectPath();
+            XMLManipulator manipulator = new(path);
+            await manipulator.ReadAsync();
 
-        string latestVersion = await GetLatestVersion();
+            string latestVersion = await GetLatestVersion();
 
-        bool hasPakcage = manipulator.VerifyPackageReference("AspNetCore.Genesis", latestVersion);
-        System.Console.WriteLine($"Pagckage reference exists: {hasPakcage}");
+            bool hasPakcage = manipulator.VerifyPackageReference("AspNetCore.Genesis", latestVersion);
+            System.Console.WriteLine($"Pagckage reference exists: {hasPakcage}");
 
-        if(hasPakcage)
-            return;
+            if(hasPakcage)
+                return;
 
-        List<Tag> newPackages = [
-            new(
-                "PackageReference",
-                "",
-                new(){
-                    {"Include","AspNetCore.Genesis"},
-                    {"Version", latestVersion}
-                }
-            )
-        ];
-
-        Tag itemgroup = new("ItemGroup", newPackages, null);
-        manipulator.AddTags([itemgroup]);
+            List<Tag> newPackages = [
+                new(
+                    "PackageReference",
+                    "",
+                    new(){
+                        {"Include","AspNetCore.Genesis"},
+                        {"Version", latestVersion}
+                    }
+                )
+            ];
+  
+            Tag itemgroup = new("ItemGroup", newPackages, null);
+            manipulator.AddTags([itemgroup]);
+        }
+        catch (Exception e)
+        {
+            Verbose.Danger($"Error on adding Genesis in {GetProjectPath()}\n {e}");
+            throw;
+        }
+        
     }
 
     public static string GetProjectPath ()

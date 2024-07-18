@@ -1,7 +1,7 @@
-﻿using Genesis.Generator;
-var gns = await GenesisGenerator.GetLatestVersion();
+﻿// using Genesis.Generator;
+// var gns = await GenesisGenerator.GetLatestVersion();
+// System.Console.WriteLine("gns");
 System.Console.WriteLine("gns");
-System.Console.WriteLine(gns);
 
 
 // using System.Net;

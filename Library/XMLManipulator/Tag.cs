@@ -13,7 +13,7 @@ public class Tag
     public Tag(string name)
         => this.Name = name;
 
-    public Tag (string name, string? content, Dictionary<string, string>? @params)
+    public Tag (string name, string content = null, Dictionary<string, string> @params = null)
     {
         this.Name = name;
         
@@ -25,7 +25,7 @@ public class Tag
         this.IsEndTree = true;
     }
 
-    public Tag (string name, IEnumerable<Tag>? content, Dictionary<string, string>? @params)
+    public Tag (string name, IEnumerable<Tag> content = null, Dictionary<string, string> @params = null)
     {
         this.Name = name;
         

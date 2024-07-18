@@ -17,7 +17,7 @@ public partial class CNCTestContext : DbContext
     public virtual DbSet<User> UserList { get; set; }
     public virtual DbSet<Answers> AnswersList { get; set; }
     protected override void OnConfiguring (DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer(@"Data Source=CA-C-0065D\SQLEXPRESS;Initial Catalog=CNCTest;Integrated Security=True;TrustServerCertificate=true");
+        => optionsBuilder.UseSqlServer(@"Data Source=CA-C-0065D\SQLEXPRESS;Initial Catalog=CNCTest; Integrated Security=True; TrustServerCertificate=true");
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new TestClassMap());

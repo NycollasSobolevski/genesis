@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "jWYPRKBZ7K0=",
+  "dgSpecHash": "ffsrUeSXdGM=",
   "success": true,
   "projectFilePath": "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\GenesisTool\\GenesisTool.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\son5ct\\.nuget\\packages\\aspnetcore.genesis\\1.0.5\\aspnetcore.genesis.1.0.5.nupkg.sha512",
     "C:\\Users\\son5ct\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\son5ct\\.nuget\\packages\\azure.identity\\1.11.3\\azure.identity.1.11.3.nupkg.sha512",
     "C:\\Users\\son5ct\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",

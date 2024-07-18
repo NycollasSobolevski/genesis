@@ -5,7 +5,7 @@
     <OutputType>Library</OutputType>    
     <PackageId>AspNetCore.Genesis</PackageId>
     <RootNamespace>Genesis</RootNamespace>
-    <PackageVersion>1.0.4</PackageVersion>
+    <PackageVersion>1.0.5</PackageVersion>
     <Authors>Nycollas Wenndy Sobolevski</Authors>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>

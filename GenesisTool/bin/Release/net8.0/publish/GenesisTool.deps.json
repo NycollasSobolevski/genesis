@@ -8,13 +8,13 @@
     ".NETCoreApp,Version=v8.0": {
       "GenesisTool/1.0.0": {
         "dependencies": {
-          "AspNetCore.Genesis": "1.0.3"
+          "AspNetCore.Genesis": "1.0.5"
         },
         "runtime": {
           "GenesisTool.dll": {}
         }
       },
-      "AspNetCore.Genesis/1.0.3": {
+      "AspNetCore.Genesis/1.0.5": {
         "dependencies": {
           "Microsoft.Data.SqlClient": "5.2.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.3"
@@ -539,12 +539,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "AspNetCore.Genesis/1.0.3": {
+    "AspNetCore.Genesis/1.0.5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-9kSRW9s4ZfbClL30tEiFGhj3KhVuTOoHTq6HfcKTM8+rAnYXaNHvGh19hQq8oLM3DJksf3R6Qd10hLXbPowgSw==",
-      "path": "aspnetcore.genesis/1.0.3",
-      "hashPath": "aspnetcore.genesis.1.0.3.nupkg.sha512"
+      "sha512": "sha512-vONTLawilCJthononwd3fAA6Ma9hO55ERuhv30YU1/f0Z6csAOgbgbYlhXdBvzvqfawM7wlSYfrFlDvsNzAdlQ==",
+      "path": "aspnetcore.genesis/1.0.5",
+      "hashPath": "aspnetcore.genesis.1.0.5.nupkg.sha512"
     },
     "Azure.Core/1.38.0": {
       "type": "package",

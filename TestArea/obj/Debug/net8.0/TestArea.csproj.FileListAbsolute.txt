@@ -62,7 +62,6 @@ C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\TestArea\bin\Debug\net8.0\r
 C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\TestArea\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
 C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\TestArea\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
 C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\TestArea\bin\Debug\net8.0\Genesis.dll
-C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\TestArea\bin\Debug\net8.0\Genesis.pdb
 C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\TestArea\obj\Debug\net8.0\TestArea.csproj.Up2Date
 C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\TestArea\obj\Debug\net8.0\TestArea.dll
 C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\TestArea\obj\Debug\net8.0\refint\TestArea.dll
@@ -211,3 +210,8 @@ C:\Users\son5ct\Desktop\genesis\TestArea\obj\Debug\net8.0\refint\TestArea.dll
 C:\Users\son5ct\Desktop\genesis\TestArea\obj\Debug\net8.0\TestArea.pdb
 C:\Users\son5ct\Desktop\genesis\TestArea\obj\Debug\net8.0\TestArea.genruntimeconfig.cache
 C:\Users\son5ct\Desktop\genesis\TestArea\obj\Debug\net8.0\ref\TestArea.dll
+C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\TestArea\bin\Debug\net8.0\GenesisTool.deps.json
+C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\TestArea\bin\Debug\net8.0\GenesisTool.runtimeconfig.json
+C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\TestArea\bin\Debug\net8.0\GenesisTool.exe
+C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\TestArea\bin\Debug\net8.0\GenesisTool.dll
+C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\TestArea\bin\Debug\net8.0\GenesisTool.pdb

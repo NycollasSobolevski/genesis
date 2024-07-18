@@ -2,6 +2,23 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "AspNetCore.Genesis/1.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Data.SqlClient": "5.2.1",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.3"
+        },
+        "compile": {
+          "lib/net8.0/Genesis.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Genesis.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        }
+      },
       "Azure.Core/1.38.0": {
         "type": "package",
         "dependencies": {
@@ -835,24 +852,23 @@
         "runtime": {
           "lib/netcoreapp2.1/_._": {}
         }
-      },
-      "AspNetCore.Genesis/1.0.4": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "dependencies": {
-          "Microsoft.Data.SqlClient": "5.2.1",
-          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.3"
-        },
-        "compile": {
-          "bin/placeholder/AspNetCore.Genesis.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/AspNetCore.Genesis.dll": {}
-        }
       }
     }
   },
   "libraries": {
+    "AspNetCore.Genesis/1.0.5": {
+      "sha512": "vONTLawilCJthononwd3fAA6Ma9hO55ERuhv30YU1/f0Z6csAOgbgbYlhXdBvzvqfawM7wlSYfrFlDvsNzAdlQ==",
+      "type": "package",
+      "path": "aspnetcore.genesis/1.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "aspnetcore.genesis.1.0.5.nupkg.sha512",
+        "aspnetcore.genesis.nuspec",
+        "lib/net8.0/Genesis.dll",
+        "lib/net8.0/Genesis.runtimeconfig.json"
+      ]
+    },
     "Azure.Core/1.38.0": {
       "sha512": "IuEgCoVA0ef7E4pQtpC3+TkPbzaoQfa77HlfJDmfuaJUCVJmn7fT0izamZiryW5sYUFKizsftIxMkXKbgIcPMQ==",
       "type": "package",
@@ -2364,23 +2380,18 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
-    },
-    "AspNetCore.Genesis/1.0.4": {
-      "type": "project",
-      "path": "../Library/Genesis.csproj",
-      "msbuildProject": "../Library/Genesis.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "AspNetCore.Genesis >= 1.0.4"
+      "AspNetCore.Genesis >= 1.0.5"
     ]
   },
   "packageFolders": {
     "C:\\Users\\son5ct\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.0.2",
+    "version": "1.0.5",
     "restore": {
       "projectUniqueName": "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\GenesisTool\\GenesisTool.csproj",
       "projectName": "AspNetCore.GenesisTool",
@@ -2400,11 +2411,7 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {
-            "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\Library\\Genesis.csproj": {
-              "projectPath": "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\Library\\Genesis.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -2421,6 +2428,12 @@
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
+        "dependencies": {
+          "AspNetCore.Genesis": {
+            "target": "Package",
+            "version": "[1.0.5, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

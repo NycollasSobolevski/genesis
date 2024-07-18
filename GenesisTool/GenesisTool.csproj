@@ -6,16 +6,11 @@
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>gns</ToolCommandName>
     <PackageId>AspNetCore.GenesisTool</PackageId>
-    <PackageVersion>1.0.2</PackageVersion>
+    <PackageVersion>1.0.5</PackageVersion>
     <Authors>Nycollas Wenndy Sobolevski</Authors>
   </PropertyGroup>
 
-  <!-- <ItemGroup> -->
-    <!-- <PackageReference Include="AspNetCore.Genesis" Version="1.0.3" /> -->
-
-  <!-- </ItemGroup> -->
-
   <ItemGroup>
-    <ProjectReference Include="../Library/Genesis.csproj" />
-  </ItemGroup>
+    <PackageReference Include="AspNetCore.Genesis" Version="1.0.5" />
+  </ItemGroup> 
 </Project>
