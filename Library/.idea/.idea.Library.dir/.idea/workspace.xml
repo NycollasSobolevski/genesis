@@ -5,95 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39db7f07-3dce-4ffc-96d2-f330de986725" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/GenesisTool.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/GenesisTool.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/GenesisTool.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/GenesisTool.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/bin/Debug/net8.0/Genesis.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/bin/Debug/net8.0/Genesis.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/bin/Debug/net8.0/Genesis.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/bin/Debug/net8.0/GenesisTool.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/bin/Debug/net8.0/GenesisTool.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/bin/Debug/net8.0/GenesisTool.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/bin/Debug/net8.0/GenesisTool.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/bin/Debug/net8.0/GenesisTool.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/bin/Debug/net8.0/GenesisTool.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/bin/Debug/net8.0/GenesisTool.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/bin/Debug/net8.0/GenesisTool.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/bin/Release/net8.0/GenesisTool.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/bin/Release/net8.0/GenesisTool.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/bin/Release/net8.0/GenesisTool.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/bin/Release/net8.0/GenesisTool.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/bin/Release/net8.0/GenesisTool.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/bin/Release/net8.0/GenesisTool.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/bin/Release/net8.0/GenesisTool.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/bin/Release/net8.0/GenesisTool.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/bin/Release/net8.0/publish/GenesisTool.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/bin/Release/net8.0/publish/GenesisTool.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/bin/Release/net8.0/publish/GenesisTool.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/bin/Release/net8.0/publish/GenesisTool.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/bin/Release/net8.0/publish/GenesisTool.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/bin/Release/net8.0/publish/GenesisTool.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/bin/Release/net8.0/publish/GenesisTool.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/bin/Release/net8.0/publish/GenesisTool.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/Debug/net8.0/GenesisTool.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/Debug/net8.0/GenesisTool.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/Debug/net8.0/GenesisTool.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/Debug/net8.0/GenesisTool.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/Debug/net8.0/GenesisTool.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/Debug/net8.0/GenesisTool.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/Debug/net8.0/GenesisTool.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/Debug/net8.0/GenesisTool.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/Debug/net8.0/GenesisTool.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/Debug/net8.0/GenesisTool.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/Debug/net8.0/GenesisTool.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/Debug/net8.0/GenesisTool.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/Debug/net8.0/GenesisTool.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/Debug/net8.0/GenesisTool.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/Debug/net8.0/GenesisTool.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/Debug/net8.0/GenesisTool.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/Debug/net8.0/GenesisTool.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/Debug/net8.0/GenesisTool.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/Debug/net8.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/Debug/net8.0/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/Debug/net8.0/ref/GenesisTool.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/Debug/net8.0/ref/GenesisTool.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/Debug/net8.0/refint/GenesisTool.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/Debug/net8.0/refint/GenesisTool.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/GenesisTool.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/GenesisTool.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/Release/net8.0/GenesisTool.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/Release/net8.0/GenesisTool.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/Release/net8.0/GenesisTool.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/Release/net8.0/GenesisTool.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/Release/net8.0/GenesisTool.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/Release/net8.0/GenesisTool.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/Release/net8.0/GenesisTool.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/Release/net8.0/GenesisTool.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/Release/net8.0/GenesisTool.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/Release/net8.0/GenesisTool.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/Release/net8.0/GenesisTool.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/Release/net8.0/GenesisTool.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/Release/net8.0/GenesisTool.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/Release/net8.0/GenesisTool.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/Release/net8.0/GenesisTool.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/Release/net8.0/GenesisTool.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/Release/net8.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/Release/net8.0/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/Release/net8.0/ref/GenesisTool.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/Release/net8.0/ref/GenesisTool.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/Release/net8.0/refint/GenesisTool.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/Release/net8.0/refint/GenesisTool.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Generator/GenesisGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Generator/GenesisGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library.sln" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/XMLManipulator/Tag.cs" beforeDir="false" afterPath="$PROJECT_DIR$/XMLManipulator/Tag.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/Core/CNCTestContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/Core/answers/Mapping/answersClassMap.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/Core/answers/Repository/answersRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/Core/answers/Service/answersService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/Core/test/Mapping/testClassMap.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/Core/test/Repository/testRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/Core/test/Service/testService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/Core/user/Mapping/userClassMap.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/Core/user/Repository/userRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/Core/user/Service/userService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/Domain/answers/Models/answers.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/Domain/answers/Repositories/IanswersRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/Domain/answers/Services/IanswersService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/Domain/test/Models/test.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/Domain/test/Repositories/ItestRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/Domain/test/Services/ItestService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/Domain/user/Models/user.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/Domain/user/Repositories/IuserRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/Domain/user/Services/IuserService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../TestArea/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/TestArea.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../TestArea/TestArea.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/TestArea.sln" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/bin/Debug/net8.0/Genesis.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../TestArea/bin/Debug/net8.0/Genesis.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/bin/Debug/net8.0/Genesis.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/bin/Debug/net8.0/TestArea.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/../TestArea/bin/Debug/net8.0/TestArea.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/bin/Debug/net8.0/TestArea.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../TestArea/bin/Debug/net8.0/TestArea.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/bin/Debug/net8.0/TestArea.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../TestArea/bin/Debug/net8.0/TestArea.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/bin/Debug/net8.0/TestArea.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../TestArea/bin/Debug/net8.0/TestArea.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/obj/Debug/net8.0/TestArea.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../TestArea/obj/Debug/net8.0/TestArea.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/obj/Debug/net8.0/TestArea.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../TestArea/obj/Debug/net8.0/TestArea.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/obj/Debug/net8.0/TestArea.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../TestArea/obj/Debug/net8.0/TestArea.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/obj/Debug/net8.0/TestArea.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../TestArea/obj/Debug/net8.0/TestArea.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/obj/Debug/net8.0/TestArea.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../TestArea/obj/Debug/net8.0/TestArea.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/obj/Debug/net8.0/TestArea.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../TestArea/obj/Debug/net8.0/TestArea.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/obj/Debug/net8.0/TestArea.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../TestArea/obj/Debug/net8.0/TestArea.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/obj/Debug/net8.0/TestArea.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/../TestArea/obj/Debug/net8.0/TestArea.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/obj/Debug/net8.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../TestArea/obj/Debug/net8.0/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/obj/Debug/net8.0/ref/TestArea.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../TestArea/obj/Debug/net8.0/ref/TestArea.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/obj/Debug/net8.0/refint/TestArea.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../TestArea/obj/Debug/net8.0/refint/TestArea.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/obj/TestArea.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../TestArea/obj/TestArea.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/obj/TestArea.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../TestArea/obj/TestArea.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/obj/TestArea.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/../TestArea/obj/TestArea.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../TestArea/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestArea/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../TestArea/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Library.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Generator/Templates/GenesisTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Generator/Templates/GenesisTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XMLManipulator/XMLManipulator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/XMLManipulator/XMLManipulator.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,8 +18,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Generator/EntitiesGenerator.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Generator/GenesisGenerator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Generator/EntitiesGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Generator/GenesisGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/XMLManipulator/Tag.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -145,6 +59,8 @@
       <updated>1721321037336</updated>
       <workItem from="1721321039833" duration="784000" />
       <workItem from="1721323959014" duration="369000" />
+      <workItem from="1721324394505" duration="3803000" />
+      <workItem from="1721396627493" duration="3226000" />
     </task>
     <servers />
   </component>

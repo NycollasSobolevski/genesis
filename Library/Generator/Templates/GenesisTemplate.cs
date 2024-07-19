@@ -2,6 +2,9 @@ using System;
 using System.Collections.ObjectModel;
 using System.Data.Common;
 using System.IO;
+using System.Linq;
+using Genesis.Text;
+using Genesis.Text.XML;
 
 namespace Genesis.Generator.Templates;
 
@@ -36,4 +39,24 @@ public partial class GenesisTemplate
     private string getDomainNamespace (string endNamespace) 
         => $"{this.Namespace}.Domain.{endNamespace};" ;
 
+    private string getBaseNamespace()
+    {
+        string baseDirectory = Directory.GetCurrentDirectory();
+        string[] csprojFiles = Directory.GetFiles(baseDirectory, "*.csproj", SearchOption.AllDirectories);
+
+        foreach (var item in csprojFiles)  
+            Console.WriteLine(item);
+        
+        XMLManipulator manipulator = new(csprojFiles[0]);
+        var namespaceTagIfExists = manipulator.GetTagsByName("RootNamespace");
+
+        if (namespaceTagIfExists.Count() > 0)
+            return namespaceTagIfExists.First().Content.ToString();
+        
+        
+        string projectName = Path.GetFileName(csprojFiles[0]).Split(".")[0];
+        
+        return TextManipulator.ToPascalCase(projectName);
+    }
+    
 }

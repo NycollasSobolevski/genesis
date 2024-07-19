@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Design.Serialization;
 using System.Diagnostics.SymbolStore;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -69,6 +70,12 @@ public class XMLManipulator
         }
 
         return content;
+    }
+
+    public IEnumerable<Tag> GetTagsByName(string tagName)
+    {
+        var packages = this.GetPackages();
+        return packages.Where(t => t.Name == tagName);
     }
 
     public void AddTags(IEnumerable<Tag> content)
