@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "L0LRl+mG650=",
+  "dgSpecHash": "9fds9c5F/0k=",
   "success": true,
   "projectFilePath": "C:\\Users\\son5ct\\Desktop\\Projects\\Genesis\\api-genesis\\GenesisTool\\GenesisTool.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\son5ct\\.nuget\\packages\\aspnetcore.genesis\\1.0.6\\aspnetcore.genesis.1.0.6.nupkg.sha512",
     "C:\\Users\\son5ct\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\son5ct\\.nuget\\packages\\azure.identity\\1.11.3\\azure.identity.1.11.3.nupkg.sha512",
     "C:\\Users\\son5ct\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
@@ -51,8 +52,7 @@
     "C:\\Users\\son5ct\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
     "C:\\Users\\son5ct\\.nuget\\packages\\system.text.encodings.web\\4.7.2\\system.text.encodings.web.4.7.2.nupkg.sha512",
     "C:\\Users\\son5ct\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512",
-    "C:\\Users\\son5ct\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\son5ct\\.nuget\\packages\\aspnetcore.genesis\\1.0.5\\aspnetcore.genesis.1.0.5.nupkg.sha512"
+    "C:\\Users\\son5ct\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
   "logs": []
 }
