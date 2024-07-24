@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Common;
 using System.IO;
@@ -23,17 +24,7 @@ public partial class GenesisTemplate
         this.TableName = tableName;
         this.DatabaseName = databasename;
 
-        string baseDirectory = Directory.GetCurrentDirectory();
-        string[] csprojFiles = Directory.GetFiles(baseDirectory, "*.csproj", SearchOption.AllDirectories);
-        if (csprojFiles.Length > 0)
-        {
-            this.Namespace = Path.GetFileName(csprojFiles[0]).ToString().Split(".")[0];
-        }
-        else
-        {
-            Verbose.Danger("No .csproj file on this project");
-            throw new Exception("");
-        }
+        this.Namespace = getBaseNamespace();
     }
 
     private string getDomainNamespace (string endNamespace) 
@@ -44,19 +35,22 @@ public partial class GenesisTemplate
         string baseDirectory = Directory.GetCurrentDirectory();
         string[] csprojFiles = Directory.GetFiles(baseDirectory, "*.csproj", SearchOption.AllDirectories);
 
-        foreach (var item in csprojFiles)  
-            Console.WriteLine(item);
+        if (csprojFiles.Length <= 0)
+        {
+            Verbose.Danger("No .csproj file on this project");
+            throw new Exception("");
+        }
         
         XMLManipulator manipulator = new(csprojFiles[0]);
-        var namespaceTagIfExists = manipulator.GetTagsByName("RootNamespace");
-
-        if (namespaceTagIfExists.Count() > 0)
-            return namespaceTagIfExists.First().Content.ToString();
+        manipulator.ReadAsync().Wait();
+        IEnumerable<Tag> namespaceTagIfExists = manipulator.GetTagsByName("RootNamespace");
         
+        if (namespaceTagIfExists.Any())
+            return namespaceTagIfExists.First().Content.ToString();
         
         string projectName = Path.GetFileName(csprojFiles[0]).Split(".")[0];
         
-        return TextManipulator.ToPascalCase(projectName);
+        return TextManipulator.ToNamespaceConvention(projectName);
     }
     
 }

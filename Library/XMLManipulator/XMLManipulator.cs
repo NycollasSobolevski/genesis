@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design.Serialization;
@@ -36,7 +37,7 @@ public class XMLManipulator
     {
         StringBuilder builder = new();
 
-        foreach (var item in this.content! )
+        foreach (var item in this.content!)
             builder.AppendLine(item);
         
         return builder.ToString();

@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "GenesisTool/1.0.0": {
         "dependencies": {
-          "AspNetCore.Genesis": "1.0.4",
+          "AspNetCore.Genesis": "1.0.5",
           "Genesis": "1.0.0.0"
         },
         "runtime": {
@@ -520,7 +520,7 @@
       "System.Text.Encodings.Web/4.7.2": {},
       "System.Text.Json/4.7.2": {},
       "System.Threading.Tasks.Extensions/4.5.4": {},
-      "AspNetCore.Genesis/1.0.4": {
+      "AspNetCore.Genesis/1.0.5": {
         "dependencies": {
           "Microsoft.Data.SqlClient": "5.2.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.3"
@@ -881,7 +881,7 @@
       "path": "system.threading.tasks.extensions/4.5.4",
       "hashPath": "system.threading.tasks.extensions.4.5.4.nupkg.sha512"
     },
-    "AspNetCore.Genesis/1.0.4": {
+    "AspNetCore.Genesis/1.0.5": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

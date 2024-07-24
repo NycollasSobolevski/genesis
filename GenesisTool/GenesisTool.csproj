@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AspNetCore.Genesis" Version="1.0.5" />
+<!--    <PackageReference Include="AspNetCore.Genesis" Version="1.0.5" />-->
+      <ProjectReference Include="../Library/Genesis.csproj" />
   </ItemGroup> 
 </Project>
