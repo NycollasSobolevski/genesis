@@ -68,4 +68,3 @@ C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\obj\Debug\net8.
 C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\obj\Debug\net8.0\GenesisTool.pdb
 C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\obj\Debug\net8.0\GenesisTool.genruntimeconfig.cache
 C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\obj\Debug\net8.0\ref\GenesisTool.dll
-C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\bin\Debug\net8.0\Genesis.pdb
