@@ -3,12 +3,14 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <OutputType>Library</OutputType>    
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Nycollas Wenndy Sobolevski</Authors>
     <PackageId>AspNetCore.Genesis</PackageId>
     <RootNamespace>Genesis</RootNamespace>
     <PackageVersion>1.0.8</PackageVersion>
-    <Authors>Nycollas Wenndy Sobolevski</Authors>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageDescription>A code generator in .NET 8 that generates code based on a database using a Core/Domain architecture.</PackageDescription>
+    <RepositoryUrl>https://github.com/NycollasSobolevski/genesis</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
