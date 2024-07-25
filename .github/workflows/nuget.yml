@@ -6,7 +6,7 @@ on:
 
 env:
   LIBRARY_PROJECT_PATH: '.\Library'
-  TOOL_PROJECT_PATH: '.\testnuget'
+  TOOL_PROJECT_PATH: '.\GenesisTool'
 
 jobs:
   Library:
