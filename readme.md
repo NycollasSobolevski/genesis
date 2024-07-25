@@ -28,7 +28,7 @@ Inserindo a tool
 
 Inserindo a Biblioteca
 ```bash
-> dotnet add package AspNetCore.Genesis --version 0.0.1
+> dotnet add package AspNetCore.Genesis
 ```
     
 

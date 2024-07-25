@@ -4,11 +4,12 @@
     <id>AspNetCore.GenesisTool</id>
     <version>1.0.6</version>
     <authors>Nycollas Wenndy Sobolevski</authors>
+    <readme>README.md</readme>
     <description>Package Description</description>
     <packageTypes>
       <packageType name="DotnetTool" />
     </packageTypes>
-    <repository type="git" commit="f5af3ef798d868622808f992571934c60cab8df4" />
+    <repository type="git" commit="23b51a216df0b72cceda913f6ec01d864f687027" />
   </metadata>
   <files>
     <file src="C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\obj\DotnetToolSettings.xml" target="tools\net8.0\any\DotnetToolSettings.xml" />
@@ -69,5 +70,6 @@
     <file src="C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\bin\Release\net8.0\publish\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll" target="tools\net8.0\any\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll" />
     <file src="C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\bin\Release\net8.0\publish\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll" target="tools\net8.0\any\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll" />
     <file src="C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\GenesisTool\bin\Release\net8.0\publish\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll" target="tools\net8.0\any\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll" />
+    <file src="C:\Users\son5ct\Desktop\Projects\Genesis\api-genesis\README.md" target="\README.md" />
   </files>
 </package>

@@ -1,0 +1,40 @@
+name: "Deploy to Nuget"
+on: 
+  "pull request":
+    tags:
+    - 'v*'
+
+env:
+  LIBRARY_PROJECT_PATH: '.\Library\'
+  TOOL_PROJECT_PATH: '.\GenesisTool\GenesisTool.csproj'
+  NUGET_SECRET: ''
+
+jobs:
+  deploy:
+    name: 'deploy'
+    runs-on: 'windows-latest'
+    steps:
+    - name: 'Checkout'
+      uses: actions/checkout@v2
+    
+    - name: 'Install dotnet'
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '3.1.x'
+      
+    - name: 'Get version'
+      id: version
+      uses: battila7/get-version-action@v2
+
+    - name: 'Build library'
+      run: dotnet build ${{ env.LIBRARY_PROJECT_PATH }}\Genesis.csproj --configuration Release
+      
+    - name: 'Pack library'
+      run: dotnet pack ${{ env.LIBRARY_PROJECT_PATH }}\Genesis.csproj -c Release -p:PackageVersion=${{ steps.version.outputs.version-without-v }} -o .\nupkgs
+      
+    - name: 'Push library'
+      run: dotnet nuget push ${{ env.LIBRARY_PROJECT_PATH }}\nupkgs\*.nupkgs -k ${{ env.NUGET_SECRETS }} -s https://api.nuget.org/v3/index.json
+
+
+
+    
