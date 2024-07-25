@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net8.0": {
-      "AspNetCore.Genesis/1.0.8": {
+      "AspNetCore.Genesis/1.0.10": {
         "type": "package",
         "dependencies": {
           "Microsoft.Data.SqlClient": "5.2.1",
@@ -856,15 +856,15 @@
     }
   },
   "libraries": {
-    "AspNetCore.Genesis/1.0.8": {
-      "sha512": "hOxhcH3tMnQr7E1hWz9Nzz8kuD5V724r/Z5fZI7g05hwYWN5UXllPnWPV9QU+CZhFpwG6i4Fwsztl3eZ7n+8iA==",
+    "AspNetCore.Genesis/1.0.10": {
+      "sha512": "rtS1lDNd0fHwyr2cKeusy8OZilQTNlhOOcPR5XUNDa/5AVnkxSHCbiyFZDV0oSEnds+3XrRLXYMSbaTVym3p6w==",
       "type": "package",
-      "path": "aspnetcore.genesis/1.0.8",
+      "path": "aspnetcore.genesis/1.0.10",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
-        "aspnetcore.genesis.1.0.8.nupkg.sha512",
+        "aspnetcore.genesis.1.0.10.nupkg.sha512",
         "aspnetcore.genesis.nuspec",
         "lib/net8.0/Genesis.dll",
         "lib/net8.0/Genesis.runtimeconfig.json"
@@ -2385,7 +2385,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "AspNetCore.Genesis >= 1.0.8"
+      "AspNetCore.Genesis >= *"
     ]
   },
   "packageFolders": {
@@ -2432,7 +2432,7 @@
         "dependencies": {
           "AspNetCore.Genesis": {
             "target": "Package",
-            "version": "[1.0.8, )"
+            "version": "[*, )"
           }
         },
         "imports": [

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Nycollas Wenndy Sobolevski")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e3dfaf5d2c833b6294bd14faf9a0ba45bf7d70df")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+51ad2fec0f23a49975138429f450b5e655b69416")]
 [assembly: System.Reflection.AssemblyProductAttribute("GenesisTool")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GenesisTool")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
