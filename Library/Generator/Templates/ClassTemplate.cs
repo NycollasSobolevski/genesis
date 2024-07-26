@@ -43,7 +43,11 @@ public partial class GenesisTemplate
         StringBuilder stringBuilder = new();
         string tableName = TextManipulator.ToPascalCase(this.TableName);
 
-        stringBuilder.AppendLine($"using Microsoft.EntityFrameworkCore;\nusing Microsoft.EntityFrameworkCore.Metadata.Builders;\nusing TestArea.Domain.Models;\n");
+        stringBuilder.AppendLine($"""
+                                  using Microsoft.EntityFrameworkCore;
+                                  using Microsoft.EntityFrameworkCore.Metadata.Builders;
+                                  using {this.Namespace}.Domain.Models;
+                                  """);
         stringBuilder.AppendLine($"namespace {this.Namespace}.Core.Mapping;");
         stringBuilder.AppendLine();
         stringBuilder.AppendLine($"public class {tableName}ClassMap : IEntityTypeConfiguration<{tableName}>");
