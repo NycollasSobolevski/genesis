@@ -6,11 +6,15 @@
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>gns</ToolCommandName>
     <PackageId>AspNetCore.GenesisTool</PackageId>
-    <PackageVersion>1.0.6</PackageVersion>
+    <PackageVersion>1.0.8</PackageVersion>
     <Authors>Nycollas Wenndy Sobolevski</Authors>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageDescription>A code generator in .NET 8 that generates code based on a database using a Core/Domain architecture.</PackageDescription>
+    <RepositoryUrl>https://github.com/NycollasSobolevski/genesis</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AspNetCore.Genesis" Version="1.0.6" />
+    <PackageReference Include="AspNetCore.Genesis" Version="*" />
+    <None Include="../README.md" Pack="true" PackagePath="\"/>
   </ItemGroup> 
 </Project>

@@ -1,0 +1,70 @@
+name: "Deploy to Nuget"
+on: 
+  push:
+    tags:
+    - 'v*'
+
+env:
+  LIBRARY_PROJECT_PATH: '.\Library'
+  TOOL_PROJECT_PATH: '.\GenesisTool'
+
+jobs:
+  Library:
+    name: 'Deploy Library'
+    runs-on: 'windows-latest'
+    environment: lib
+
+    steps:
+    - name: 'Checkout'
+      uses: actions/checkout@v2
+    
+    - name: 'Install dotnet'
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '8.x.x'
+      
+    - name: 'Get version'
+      id: version
+      uses: battila7/get-version-action@v2
+
+    - name: 'Build library'
+      run: dotnet build ${{ env.LIBRARY_PROJECT_PATH }}\Genesis.csproj --configuration Release
+      
+    - name: 'Pack library'
+      run: dotnet pack ${{ env.LIBRARY_PROJECT_PATH }}\Genesis.csproj -c Release -p:PackageVersion=${{ steps.version.outputs.version-without-v }} -o .\${{ env.LIBRARY_PROJECT_PATH }}\nupkgs
+      
+    - name: 'Push library'
+      run: dotnet nuget push ${{ env.LIBRARY_PROJECT_PATH }}\nupkgs\*.nupkg -k ${{ secrets.NUGET_SECRETS }} -s https://api.nuget.org/v3/index.json
+
+
+  Tool:
+    name: 'Deploy Tool'
+    runs-on: 'windows-latest'
+    environment: tool
+    needs: Library
+
+    steps:
+    - name: 'Checkout'
+      uses: actions/checkout@v2
+    
+    - name: 'Install dotnet'
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '8.x.x'
+      
+    - name: 'Get version'
+      id: version
+      uses: battila7/get-version-action@v2
+
+    - name: 'Build library'
+      run: dotnet build ${{ env.TOOL_PROJECT_PATH }}\GenesisTool.csproj --configuration Release
+      
+    - name: 'Pack library'
+      run: dotnet pack ${{ env.TOOL_PROJECT_PATH }}\GenesisTool.csproj -c Release -p:PackageVersion=${{ steps.version.outputs.version-without-v }} -o .\${{ env.TOOL_PROJECT_PATH }}\nupkgs
+      
+    - name: 'Push library'
+      run: dotnet nuget push ${{ env.TOOL_PROJECT_PATH }}\nupkgs\*.nupkg -k ${{ secrets.NUGET_SECRETS }} -s https://api.nuget.org/v3/index.json
+
+  
+
+    

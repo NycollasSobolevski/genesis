@@ -14,7 +14,7 @@ public static class TextManipulator
     }
 
     public static string ToNamespaceConvention(string text)
-        => text.Replace(" ", "_");
+        => text.Replace(" ", "_").Replace("-","_");
     
     public static string ToSingleTitle (string text)
         => char.ToUpper(text[0]) + text[1..];

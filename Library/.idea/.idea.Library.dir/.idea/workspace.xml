@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39db7f07-3dce-4ffc-96d2-f330de986725" name="Changes" comment="" />
+    <list default="true" id="39db7f07-3dce-4ffc-96d2-f330de986725" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../GenesisTool/GenesisTool.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/GenesisTool.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Library.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Generator/Templates/ClassTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Generator/Templates/ClassTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utils/TextManipulator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/TextManipulator.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,6 +62,8 @@
       <workItem from="1721323959014" duration="369000" />
       <workItem from="1721324394505" duration="3803000" />
       <workItem from="1721396627493" duration="4566000" />
+      <workItem from="1721910557004" duration="2488000" />
+      <workItem from="1722014964682" duration="2822000" />
     </task>
     <servers />
   </component>
