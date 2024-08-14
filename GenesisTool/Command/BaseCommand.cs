@@ -6,8 +6,8 @@ using Microsoft.Extensions.Options;
 
 namespace GenesisTool.Commands;
 
-public abstract class BaseCommand<T>
-    where T : BaseCommand<T>, new()
+public abstract class BaseCommand<T> : IBaseCommand
+    where T : BaseCommand<T>, new() 
 {
     protected CommandStructure structure {get;set;}
     protected virtual List<string> ActionsList {get;set;} = [];
