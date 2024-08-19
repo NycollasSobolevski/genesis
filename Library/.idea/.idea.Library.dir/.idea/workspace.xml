@@ -5,19 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39db7f07-3dce-4ffc-96d2-f330de986725" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../GenesisTool/Command/Commands/Configuration/ConfigurationCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../GenesisTool/Command/Commands/IBaseCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Configurator/GenesisConfigurator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Exceptions/Configurator/ConfigurationKeyNotFound.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Configurator/BaseConfigurationEnum.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Configurator/Proxy/ProxyConfigurationsEnum.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Configurator/Proxy/ProxyConfigurator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Exceptions/Configurator/ConfigurationSetItemException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Exceptions/Configurator/Proxy/InvalidProxyFormatException.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../GenesisTool/.idea/.idea.GenesisTool/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/.idea/.idea.GenesisTool/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/App.config.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/App.config.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../GenesisTool/Command/BaseCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/Command/BaseCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/Command/CommandsEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/Command/CommandsEnum.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/Exceptions/Commands/NoActionProvided.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/Exceptions/Commands/NoActionProvided.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/Exceptions/Commands/NoCommandProvided.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/Exceptions/Commands/NoCommandProvided.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/Generator/Generator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GenesisTool/Command/Commands/Configuration/ConfigurationCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/Command/Commands/Configuration/ConfigurationCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GenesisTool/Command/Commands/Database/DatabaseCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/Command/Commands/Database/DatabaseCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GenesisTool/Command/Commands/Help/HelpCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/Command/Commands/Help/HelpCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GenesisTool/Exceptions/Commands/InvalidAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/Exceptions/Commands/InvalidAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GenesisTool/GenesisTool.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/GenesisTool.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Library.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/../readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Configurator/GenesisConfigurator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Configurator/GenesisConfigurator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Folder.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Folder.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Genesis.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Genesis.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +31,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/son5ct/Desktop/Production/genesis/Library/Configurator/GenesisConfigurator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Configurator/BaseConfigurationEnum.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/son5ct/Desktop/em-producao/genesis/Library/Configurator/GenesisConfigurator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Generator/EntitiesGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Generator/GenesisGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/XMLManipulator/Tag.cs" root0="SKIP_HIGHLIGHTING" />
@@ -44,7 +48,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -60,7 +64,6 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="0c0a4087-bb67-40e3-b8c3-79210c67dd85" />
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -77,6 +80,8 @@
       <workItem from="1722014964682" duration="2822000" />
       <workItem from="1723570315847" duration="701000" />
       <workItem from="1723654063286" duration="7486000" />
+      <workItem from="1723830579802" duration="394000" />
+      <workItem from="1724071582825" duration="11578000" />
     </task>
     <servers />
   </component>

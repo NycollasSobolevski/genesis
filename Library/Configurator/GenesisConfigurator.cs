@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using Genesis.Exceptions.Configurator;
+using Genesis.Generator;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Genesis.Configurator;
 
@@ -29,18 +31,38 @@ public class GenesisConfigurator
             return;
         }
         path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-        path += @"\Genesis\config";
+        path += @"\Genesis\gns.conf";
         this.defaultConfigurationPath = path;
     }
 
     public bool FileExists()
-        => File.Exists(this.defaultConfigurationPath);
-
-
-    private Dictionary<string, string> getItem(string key)
     {
+        if (!File.Exists(this.defaultConfigurationPath))
+        {
+            string directoryPath = Path.GetDirectoryName(defaultConfigurationPath);
+            Console.WriteLine(directoryPath);
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+                Verbose.Info($"Directory created '{directoryPath}'");
+            }
+
+            var f = File.Create(this.defaultConfigurationPath);
+            Verbose.Info($"File successfully created on:\n {this.defaultConfigurationPath}");
+            f.Close();
+        }
+        
+        return File.Exists(this.defaultConfigurationPath);
+    }
+
+
+    protected Dictionary<string, string> getItem(string key)
+    {
+        if (!FileExists())
+            throw new FileNotFoundException();
+        
         var lines = File.ReadLines(this.defaultConfigurationPath);
-        string select;
+        
         foreach (var line in lines) 
         {
             if (line.StartsWith("//"))
@@ -62,15 +84,50 @@ public class GenesisConfigurator
         throw new ConfigurationKeyNotFound();
     }
 
-    private void setItem(string key, string value)
+    protected void setItem(string key, string value)
     {
+        if (!FileExists())
+            throw new FileNotFoundException();
+        
+            // File.Create(this.defaultConfigurationPath);
         var lines = File.ReadLines(this.defaultConfigurationPath).ToList();
-        lines.Add($"{key}: {value}");
+
+        bool finded = false;
+        Console.WriteLine(lines.Count);
+        if(lines.Count > 0)
+            for(int i = 1; i < lines.Count; i++)
+            {
+                if (lines[i].Contains(":"))
+                {
+                    string lineKey = lines[i].Split(":")[0];
+                    if (lineKey == key)
+                    {
+                        lines[i] = $"{key}:{value}";
+                        finded = true;
+                        break;
+                    }
+                }
+            }
+        
+        if(!finded)
+            lines.Add($"{key}:{value}");
         
         using StreamWriter writer = new(this.defaultConfigurationPath);
         foreach (var line in lines)
             writer.WriteLine(line);
-        
-        //! parei aqui
+
+        writer.Close();
+    }
+
+    public static void SetItem(Enum key, string value)
+    {
+            GenesisConfigurator config = new();
+            config.setItem(key.ToString(), value);
+    }
+
+    public static Dictionary<string, string> GetItem(string key)
+    {
+        GenesisConfigurator configurator = new();
+        return configurator.getItem(key);
     }
 }
