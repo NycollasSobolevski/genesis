@@ -13,6 +13,8 @@ public class GenesisConfigurator
 {
     private string defaultConfigurationPath { get; set; }
 
+    private const string delimiter = "=";
+    
     public GenesisConfigurator()
     {
         SetDefaultPath();
@@ -68,7 +70,7 @@ public class GenesisConfigurator
             if (line.StartsWith("//"))
                 continue;
 
-            var content = line.Split(':');
+            var content = line.Split(delimiter);
             content[0] = content[0].Replace(" ", "");
             if (content[0] == key)
             {
@@ -89,20 +91,18 @@ public class GenesisConfigurator
         if (!FileExists())
             throw new FileNotFoundException();
         
-            // File.Create(this.defaultConfigurationPath);
         var lines = File.ReadLines(this.defaultConfigurationPath).ToList();
 
         bool finded = false;
-        Console.WriteLine(lines.Count);
         if(lines.Count > 0)
-            for(int i = 1; i < lines.Count; i++)
+            for(int i = 0; i < lines.Count; i++)
             {
-                if (lines[i].Contains(":"))
+                if (lines[i].Contains(delimiter))
                 {
-                    string lineKey = lines[i].Split(":")[0];
+                    string lineKey = lines[i].Split(delimiter)[0];
                     if (lineKey == key)
                     {
-                        lines[i] = $"{key}:{value}";
+                        lines[i] = $"{key}{delimiter}{value}";
                         finded = true;
                         break;
                     }
@@ -110,7 +110,7 @@ public class GenesisConfigurator
             }
         
         if(!finded)
-            lines.Add($"{key}:{value}");
+            lines.Add($"{key}{delimiter}{value}");
         
         using StreamWriter writer = new(this.defaultConfigurationPath);
         foreach (var line in lines)
@@ -119,12 +119,45 @@ public class GenesisConfigurator
         writer.Close();
     }
 
+    protected void removeItem(string key)
+    {
+        if (!FileExists())
+            throw new FileNotFoundException();
+        
+        var lines = File.ReadLines(this.defaultConfigurationPath).ToList();
+
+        if(lines.Count > 0)
+            for(int i = 0; i < lines.Count; i++)
+            {
+                if (lines[i].Contains(delimiter))
+                {
+                    string lineKey = lines[i].Split(delimiter)[0];
+                    if (lineKey == key)
+                    {
+                        lines.RemoveAt(i);
+                        break;
+                    }
+                }
+            }
+        using StreamWriter writer = new(this.defaultConfigurationPath);
+        foreach (var line in lines)
+            writer.WriteLine(line);
+
+        writer.Close();
+    }
+    
     public static void SetItem(Enum key, string value)
     {
-            GenesisConfigurator config = new();
-            config.setItem(key.ToString(), value);
+        GenesisConfigurator config = new();
+        config.setItem(key.ToString(), value);
     }
 
+    public static void RemoveItem(Enum key)
+    {
+        GenesisConfigurator config = new();
+        config.removeItem(key.ToString());
+    }
+    
     public static Dictionary<string, string> GetItem(string key)
     {
         GenesisConfigurator configurator = new();

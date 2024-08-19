@@ -46,12 +46,20 @@ public static class ProxyConfigurator
             throw new InvalidProxyFormatException();
         }
     }
-    
-    public static void SetProxyDomain(string value){}
-    
-    public static void SetProxyUser(string value){}
-    
-    public static void SetProxyPassword(string value){}
-    
-    public static void ClearProxy(){}
+
+    public static void SetProxyDomain(string value)
+        => GenesisConfigurator.SetItem(ProxyConfigurationsEnum.ProxyHost, value);
+
+    public static void SetProxyUser(string value)
+        => GenesisConfigurator.SetItem(ProxyConfigurationsEnum.ProxyUsername, value);
+
+    public static void SetProxyPassword(string value)
+        => GenesisConfigurator.SetItem(ProxyConfigurationsEnum.ProxyPassword, value);
+
+    public static void ClearProxy()
+    {
+        GenesisConfigurator.RemoveItem(ProxyConfigurationsEnum.ProxyHost);
+        GenesisConfigurator.RemoveItem(ProxyConfigurationsEnum.ProxyPassword);
+        GenesisConfigurator.RemoveItem(ProxyConfigurationsEnum.ProxyUsername);
+    }
 }
