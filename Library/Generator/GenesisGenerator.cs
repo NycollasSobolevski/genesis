@@ -12,6 +12,8 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Genesis.Configurator;
+using Genesis.Exceptions.Configurator.Proxy;
 using Genesis.Generator.Database;
 using Genesis.Generator.Templates;
 using Genesis.Text;
@@ -179,27 +181,36 @@ public partial class GenesisGenerator
     public static async Task<string> GetLatestVersion()
     {
         string url = @"https://api.nuget.org/v3-flatcontainer/aspnetcore.genesis/index.json";
-        var proxy = new WebProxy
-        {
-            Address = new Uri("http://10.224.200.26:8080"),
-            BypassProxyOnLocal = false,
-            UseDefaultCredentials = false,
-            Credentials = new NetworkCredential(
-                userName: "disrct",
-                password: "etsps2024401"
-            )
-        };
 
-        var httpClientHandler = new HttpClientHandler
+        bool hasProxy = ProxyConfigurator.CheckProxy();
+
+        HttpClientHandler httpClientHandler;
+        if (hasProxy)
         {
-            Proxy = proxy,
-            PreAuthenticate = true,
-            UseDefaultCredentials = false
-        };
+            var proxy = new WebProxy
+            {
+                Address = new Uri(GenesisConfigurator.GetItem(ProxyConfigurationsEnum.ProxyHost.ToString())),
+                BypassProxyOnLocal = false,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(
+                    userName: GenesisConfigurator.GetItem(ProxyConfigurationsEnum.ProxyUsername.ToString()),
+                    password: GenesisConfigurator.GetItem(ProxyConfigurationsEnum.ProxyPassword.ToString())
+                )
+            };
+
+            httpClientHandler = new HttpClientHandler
+            {
+                Proxy = proxy,
+                PreAuthenticate = true,
+                UseDefaultCredentials = false
+            };
+        } else {
+            httpClientHandler = new HttpClientHandler();
+        }
+        
         using HttpClient client = new(httpClientHandler);
 
-        HttpResponseMessage response;   
-        response = await client.GetAsync(url);
+        HttpResponseMessage response = await client.GetAsync(url);;   
 
         var responseContent = await response.Content.ReadAsStringAsync();
 

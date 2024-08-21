@@ -58,7 +58,7 @@ public class GenesisConfigurator
     }
 
 
-    protected Dictionary<string, string> getItem(string key)
+    protected string getItem(string key)
     {
         if (!FileExists())
             throw new FileNotFoundException();
@@ -74,11 +74,7 @@ public class GenesisConfigurator
             content[0] = content[0].Replace(" ", "");
             if (content[0] == key)
             {
-                Dictionary<string, string> res = new()
-                {
-                    { content[0], content[1] }
-                };
-                
+                string res = content[1];
                 return res;
             }
         }
@@ -158,7 +154,7 @@ public class GenesisConfigurator
         config.removeItem(key.ToString());
     }
     
-    public static Dictionary<string, string> GetItem(string key)
+    public static string GetItem(string key)
     {
         GenesisConfigurator configurator = new();
         return configurator.getItem(key);

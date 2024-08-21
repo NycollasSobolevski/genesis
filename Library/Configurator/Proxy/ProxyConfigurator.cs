@@ -1,11 +1,25 @@
 using System;
+using System.Linq;
 using System.Text.RegularExpressions;
-using Genesis.Exceptions.Configurator.Proxy;
+using Genesis.Configurator;
+namespace Genesis.Exceptions.Configurator.Proxy;
 
-namespace Genesis.Configurator;
-
-public static class ProxyConfigurator
+public class ProxyConfigurator : GenesisConfigurator
 {
+    public static bool CheckProxy()
+    {
+        string host = GetItem(ProxyConfigurationsEnum.ProxyHost.ToString());
+        string user = GetItem(ProxyConfigurationsEnum.ProxyUsername.ToString());
+        string pass = GetItem(ProxyConfigurationsEnum.ProxyPassword.ToString());
+
+        bool hasNull = new[] { host, user, pass }.Any(x => x == null);
+        if(hasNull)
+            return false;
+
+        return true;
+
+    }
+    
     public static void SetProxyByUrl(string url)
     {
         try
