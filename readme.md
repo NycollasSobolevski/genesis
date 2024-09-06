@@ -59,6 +59,36 @@ Para gerar uma estrutura com base no banco de dados, você precisa primeiramente
 > gns database add {database_url}
 ```
 
+### config
+
+#### proxy-url
+Configurar proxy somente pela url direta de proxy no formato "http://username:password@domain:port". Desta forma ele irá configurar automaticamente o nome de usuário, senha e domínio do proxy.
+
+```bash
+> gns config proxy-url {url}
+```
+
+#### proxy-domain
+Configura somente o domínio do proxy onde pode-se alterar o dominio independente do nome de usuário e senha.
+
+```bash
+> gns config proxy-domain {domain}
+```
+
+#### proxy-credential-username
+Configura somente o nome de usuário do proxy.
+
+```bash
+> gns config proxy-credential-username {username}
+```
+
+#### proxy-credential-password
+Configura somente a senha de usuário do proxy.
+
+```bash
+> gns config proxy-credential-password {password}
+```
+
 Com isso ele gerará a seguinte estrutura para **cada entidade** no banco de dados desejado.
 
 ```bash
