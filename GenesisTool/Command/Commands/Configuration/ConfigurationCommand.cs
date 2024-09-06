@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using Genesis.Configurator;
+using Genesis.Exceptions.Configurator.Proxy;
 using Genesis.Generator;
-using GenesisTool;
-using GenesisTool.Commands;
 using GenesisTool.Exceptions;
 
 namespace GenesisTool.Commands;
