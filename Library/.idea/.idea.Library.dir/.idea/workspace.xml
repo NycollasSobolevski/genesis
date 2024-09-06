@@ -5,10 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39db7f07-3dce-4ffc-96d2-f330de986725" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../GenesisTool/GenesisTool.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/GenesisTool.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Library.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Generator/Templates/ClassTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Generator/Templates/ClassTemplate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils/TextManipulator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/TextManipulator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GenesisTool/Command/Commands/Configuration/ConfigurationCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../GenesisTool/Command/Commands/Configuration/ConfigurationCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test area/Core/CNCTestContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test area/Core/answers/Mapping/answersClassMap.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test area/Core/answers/Repository/answersRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test area/Core/answers/Service/answersService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test area/Core/test/Mapping/testClassMap.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test area/Core/test/Repository/testRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test area/Core/test/Service/testService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test area/Core/user/Mapping/userClassMap.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test area/Core/user/Repository/userRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test area/Core/user/Service/userService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test area/Domain/answers/Models/answers.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test area/Domain/answers/Repositories/IanswersRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test area/Domain/answers/Services/IanswersService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test area/Domain/test/Models/test.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test area/Domain/test/Repositories/ItestRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test area/Domain/test/Services/ItestService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test area/Domain/user/Models/user.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test area/Domain/user/Repositories/IuserRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test area/Domain/user/Services/IuserService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test area/Test area.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Test area/Test area.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +36,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Configurator/BaseConfigurationEnum.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/son5ct/Desktop/em-producao/genesis/Library/Configurator/GenesisConfigurator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Generator/EntitiesGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Generator/GenesisGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/XMLManipulator/Tag.cs" root0="SKIP_HIGHLIGHTING" />
@@ -34,7 +53,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -64,6 +83,12 @@
       <workItem from="1721396627493" duration="4566000" />
       <workItem from="1721910557004" duration="2488000" />
       <workItem from="1722014964682" duration="2822000" />
+      <workItem from="1723570315847" duration="701000" />
+      <workItem from="1723654063286" duration="7486000" />
+      <workItem from="1723830579802" duration="394000" />
+      <workItem from="1724071582825" duration="13786000" />
+      <workItem from="1724152600509" duration="2619000" />
+      <workItem from="1725621801006" duration="969000" />
     </task>
     <servers />
   </component>

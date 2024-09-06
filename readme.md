@@ -79,6 +79,34 @@ Com isso ele gerará a seguinte estrutura para **cada entidade** no banco de dad
          └─ Services
               └─ IEntityService.cs
 ```
+
+### Configuration
+
+#### Proxy Configuration
+
+Para configurar o proxy via comando é necessario digitar os seguintes comandos:
+
+#### Setting Proxy Host
+```bash
+gns config proxy-adress "http://yourhost.com:8080"
+```
+ou
+```bash
+gns config proxy-adress "http://100.100.100.100:8080"
+```
+
+#### Setting Proxy Username
+```bash
+gns config proxy-credential-username "yourUsername"
+```
+#### Setting Proxy Password
+```bash
+gns config proxy-credential-password "yourPassword"
+```
+
+Se as configurações de proxy não forem feitas o sistema não utilizará o proxy.
+
+
 ## Genesis
 
 Biblioteca que será utilizada como base para a estrutura da API em sí, de forma seguinto o Princípio de Interface Segregation (SOLID) e temos as seguintes interfaces:

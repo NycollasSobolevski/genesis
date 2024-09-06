@@ -5,7 +5,7 @@ public class NoActionProvidedException : System.Exception
 {
     private const string defaultMessage = """
         No action provided.
-        try '--help' to see all options
+        try 'help' to see all options
         """;
     public NoActionProvidedException() : base(defaultMessage) {  }
     public NoActionProvidedException(string message) : base(message) { }

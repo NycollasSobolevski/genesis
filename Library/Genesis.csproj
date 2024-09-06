@@ -23,4 +23,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Configurator\BaseConfigurationEnum.cs" />
+  </ItemGroup>
+
 </Project>

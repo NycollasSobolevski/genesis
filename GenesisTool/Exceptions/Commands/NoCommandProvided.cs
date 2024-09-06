@@ -5,7 +5,7 @@ public class NoCommandProvidedException : System.Exception
 {
     private const string defaultMessage = """
         No comands provided.
-        try '--help' to see all options
+        try 'help' to see all options
         """;
     public NoCommandProvidedException() : base(defaultMessage) {  }
     public NoCommandProvidedException(string message) : base(message) { }
