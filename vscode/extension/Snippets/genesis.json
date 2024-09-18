@@ -1,0 +1,91 @@
+{
+    "Attribute using recommended pattern": {
+        "prefix": "attribute",
+        "body": [
+
+        ],
+        "description": "Genesis description"
+    },
+    "IRepository": {
+        "prefix": "irepository",
+        "body": [
+            "using Genesis.Domain.Repositories;",
+            "using ${1:NAMESPACE}.Domain.Models;",
+            "",
+            "namespace ${1:NAMESPACE}.Domain.Repositories;",
+            "",
+            "public interface ${2:$TM_FILENAME_BASE} : IRepository<${3:TYPE}>",
+            "{",
+            "\t$0",
+            "}"
+        ],
+        "description": "Generate a repository interface"
+    },
+    "Repository": {
+        "prefix": "repository",
+        "body": [
+            "using Genesis.Core.Repositories;",
+            "using ${1:NAMESPACE}.Domain.Models;",
+            "using ${1:NAMESPACE}.Domain.Repositories;",
+            "",
+            "namespace ${1:NAMESPACE}.Core.Repositories;",
+            "",
+            "public class ${2:$TM_FILENAME_BASE}(${2:CONTEXT} context) ",
+            "\t: BaseRepository<${3:TYPE}>(context), I${2:$TM_FILENAME_BASE}",
+            "{",
+            "\t$0",
+            "}"
+        ],
+        "description": "Generate a repository class"
+    },
+    "IService": {
+        "prefix": "iservice",
+        "body": [
+            "using Genesis.Domain.Services;",
+            "using ${1:NAMESPACE}.Domain.Models;",
+            "",
+            "namespace ${1:NAMESPACE}.Domain.Services;",
+            "",
+            "public interface ${2:$TM_FILENAME_BASE} : IService<${3:TYPE}>",
+            "{",
+            "\t$0",
+            "}"
+        ],
+        "description": "Generate a service interface"
+    },
+    "Service": {
+        "prefix": "service",
+        "body": [
+            "using Genesis.Core.Services;",
+            "using Genesis.Core.Repositories;",
+            "using ${1:NAMESPACE}.Domain.Models;",
+            "using ${1:NAMESPACE}.Domain.Services;",
+            "",
+            "namespace ${1:NAMESPACE}.Core.Services;",
+            "",
+            "public class ${2:$TM_FILENAME_BASE}(BaseRepository<${3:TYPE}> repository) ",
+            "\t: BaseService<${3:TYPE}>(repository), I${2:$TM_FILENAME_BASE}",
+            "{",
+            "\t$0",
+            "}"
+        ],
+        "description": "Generate a service class"
+    },
+    "Model": {
+        "prefix": "model",
+        "body": [
+            "using Genesis.Domain.Models;",
+            "",
+            "namespace ${1:NAMESPACE}.Domain.Models;",
+            "",
+            "public partial class ${2:$TM_FILENAME_BASE} : IEntity ",
+            "{",
+            "\t$0",
+            "}"
+        ],
+        "description": "Generate a model"
+    }
+
+
+
+}

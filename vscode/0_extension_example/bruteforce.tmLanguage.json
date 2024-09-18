@@ -1,0 +1,66 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "bruteforce",
+    "patterns": [
+        { "include": "#keywords" },
+        { "include": "#entitys" },
+        { "include": "#constants" },
+        { "include": "#variables" },
+		{ "include": "#comments" }
+    ],
+    "repository": {
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.bruteforce",
+                    "match": "\\b(check|define|then|given|considering|if|contains|as|in|for|is|some|all)\\b"
+                },
+                {
+                    "name": "keyword.control.bruteforce",
+                    "match": "\\b(and|or|not)\\b"
+                }
+            ]
+        },
+        
+        "entitys": {
+            "patterns": [
+                {
+                    "name": "entity.name.function.bruteforce",
+                    "match": "\\b(subset|of)\\b"
+                },
+                {
+                    "name": "entity.name.class.bruteforce",
+                    "match": "\\b(nat|real|int|rat)\\b"
+                }
+            ]
+        },
+
+        "constants": {
+            "patterns": [
+                {
+                    "name": "constant.numeric.bruteforce",
+                    "match": "\\b(-?[0-9][0-9\\.]*)\\b"
+                }
+            ]
+        },
+
+        "variables": {
+            "patterns": [
+                {
+                    "name": "variable.parameter.bruteforce",
+                    "match": "\\b([a-z]+)\\b"
+                }
+            ]
+        },
+
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.bruteforce",
+                    "match": "::.*$"
+                }
+            ]
+        }
+    },
+    "scopeName": "source.bf"
+}

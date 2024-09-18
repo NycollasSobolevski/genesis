@@ -1,0 +1,12 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "bruteforce",
+    "patterns": [
+        { "include": "#keywords" },
+        { "include": "#entitys" },
+        { "include": "#constants" },
+        { "include": "#variables" },
+		{ "include": "#comments" }
+    ],
+    "scopeName": "source.bf"
+}
