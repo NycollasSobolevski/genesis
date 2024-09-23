@@ -1,7 +1,7 @@
 {
-    "name": "Genesis",
+    "name": "GenesisGeneratorSnippets",
     "displayName": "Genesis Generator",
-    "publisher": "Nycollas Sobolevski",
+    "publisher": "GenesisGenerator",
     "author": "Nycollas Sobolevski",
     "icon": "res/favicon.png",
     "repository": {
@@ -11,7 +11,7 @@
     "description": "A Genesis snippets tool",
     "version": "1.0.0",
     "engines": {
-        "vscode": "^1.80.0"
+        "vscode": "^1.89.0"
     },
     "categories": [
         "Snippets"
