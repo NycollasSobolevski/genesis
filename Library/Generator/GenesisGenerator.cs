@@ -35,15 +35,18 @@ public partial class GenesisGenerator
     public void GenerateCode()
     {
         try{
+            AddGenesisToProject().Wait();
+            
             DatabaseInfo dbInfo = new(this.ConnectionString);
             var entities = GetEntities();
             TreeGenerator.GenerateBaseTree();
             ContextGenerator ctxGenerator = new(dbInfo);
             ctxGenerator.GenerateContext(entities);
 
+
             foreach (var tableName in entities)
             {
-                TreeGenerator.GenerateTreeByEntity(tableName);
+                TreeGenerator.GenerateTreeByEntity(TextManipulator.ToPascalCase(tableName));
                 
                 var tabledata = GetTableData(tableName);
 
@@ -56,7 +59,6 @@ public partial class GenesisGenerator
                 generator.GenerateService();
             }
 
-            AddGenesisToProject().Wait();
 
         } catch(Exception e) {
             Verbose.Danger($"Error on generate context\n {e}");
