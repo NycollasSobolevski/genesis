@@ -6,43 +6,41 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Genesis.Core.Repositories;
 
-public class BaseRepository<T> : IRepository<T>
+public class BaseRepository<T>(DbContext context) : IRepository<T>
     where T : IEntity
 {
 
-    protected DbContext context { get; set; }
-    protected DbSet<T> table;
-
-    public BaseRepository(DbContext context)
-    {
-        this.context = context;
-        this.table = context.Set<T>();
-    }
+    protected DbContext Context { get; set; } = context;
+    protected DbSet<T> Table = context.Set<T>();
 
     public virtual T Add(T entity)
-        => this.table.Add( entity ).Entity;
+        => this.Table.Add( entity ).Entity;
 
     public virtual async Task<T> AddAsync(T entity)
     {
-        var result = await this.table.AddAsync( entity );
+        var result = await this.Table.AddAsync( entity );
         return result.Entity;
     }
     public virtual IQueryable<T> Get()
-        => this.table;
+        => this.Table;
 
     public virtual IQueryable<T> GetAllNoTracking()
-        => this.table.AsNoTracking();
+        => this.Table.AsNoTracking();
 
     public virtual void Remove(T obj)
-        => this.table.Remove( obj );
+        => this.Table.Remove( obj );
+
+    public void Detach(T obj)
+        => this.Context.Entry(obj).State = EntityState.Detached;
 
     public virtual void Save()
-        => this.context.SaveChanges();
+        => this.Context.SaveChanges();
 
     public virtual Task SaveAsync()
-        => this.context.SaveChangesAsync();
+        => this.Context.SaveChangesAsync();
 
     public virtual T Update(T obj)
-        => this.table.Update( obj ).Entity;
+        => this.Table.Update( obj ).Entity;
+    
 
 }
