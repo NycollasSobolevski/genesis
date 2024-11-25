@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Data.Common;
 using System.IO;
 using Genesis.Generator.Templates;
+using Genesis.Text;
 
 namespace Genesis.Generator;
 
@@ -13,7 +14,7 @@ public class EntitiesGenerator
     private GenesisTemplate template { get; set; }
     public EntitiesGenerator(string name, ReadOnlyCollection<DbColumn> entityData, string catalog)
     {
-        this.EntityName = name;
+        this.EntityName = TextManipulator.ToPascalCase(name);
         this.EntityData = entityData;
         this.template   = new(this.EntityName, this.EntityData, catalog);
     }

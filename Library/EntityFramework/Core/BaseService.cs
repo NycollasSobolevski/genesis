@@ -9,74 +9,45 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Genesis.Core.Services;
 
-public class BaseService<T> : IService<T>
+public class BaseService<T>(BaseRepository<T> repository) : IService<T>
     where T : IEntity
 {
 
-    protected readonly IRepository<T> repository;
-
-    public BaseService( BaseRepository<T> _repository )
-        => this.repository = _repository;
+    protected readonly IRepository<T> Repository = repository;
 
 
     public virtual void Add(T entity)
     {
-        var objectIfExists = this.repository!
+        var objectIfExists = this.Repository!
             .GetAllNoTracking()
             .SingleOrDefault( dbObject => dbObject.Id == entity.Id );
 
         if ( objectIfExists is not null )
             throw new Exception("Object exists");
 
-        this.repository.Add( entity );
-        this.repository.Save( );
+        this.Repository.Add( entity );
+        this.Repository.Save( );
     }
 
     public virtual async Task<T> AddAsync(T entity)
     {
-        var objectIfExists = await this.repository!
+        var objectIfExists = await this.Repository!
             .GetAllNoTracking()
             .SingleOrDefaultAsync( dbObject => dbObject.Id == entity.Id );
 
         if ( objectIfExists is not null )
             throw new Exception("Object exists");
 
-        var obj = this.repository.Add( entity );
-        await this.repository.SaveAsync( );
+        var obj = this.Repository.Add( entity );
+        await this.Repository.SaveAsync( );
         return obj;
     }
 
-    public virtual void Delete(T entity)
+    public virtual T Get(int id)
     {
-        var objectIfExists = this.repository!
+        var objectIfExists = this.Repository!
             .GetAllNoTracking()
-            .SingleOrDefault( dbObject => dbObject.Id == entity.Id );
-
-        if( objectIfExists is null )
-            throw new Exception("Object not exists");
-        
-        this.repository.Remove( objectIfExists );
-        this.repository.Save( );
-    }
-
-    public virtual async Task DeleteAsync(T entity)
-    {
-        var objectIfExists = await this.repository!
-            .GetAllNoTracking()
-            .SingleOrDefaultAsync( dbObject => dbObject.Id == entity.Id );
-
-        if( objectIfExists is null )
-            throw new Exception("Object not exists");
-        
-        this.repository.Remove( objectIfExists );
-        await this.repository.SaveAsync( );
-    }
-
-    public virtual T Get(T entity)
-    {
-        var objectIfExists = this.repository!
-            .GetAllNoTracking()
-            .SingleOrDefault( dbObject => dbObject.Id == entity.Id );
+            .SingleOrDefault( dbObject => dbObject.Id == id );
 
         if ( objectIfExists is null )
             throw new Exception("Object not exists");
@@ -84,43 +55,73 @@ public class BaseService<T> : IService<T>
         return objectIfExists;
     }
 
-    public virtual async Task<T> GetAsync(T entity)
+    public virtual async Task<T> GetAsync(int id)
     {
-        var objectIfExists = await this.repository!
+        var objectIfExists = await this.Repository!
             .GetAllNoTracking()
-            .SingleOrDefaultAsync( dbObject => dbObject.Id == entity.Id );
+            .SingleOrDefaultAsync( dbObject => dbObject.Id == id );
 
         if ( objectIfExists is null )
             throw new Exception("Object not exists");
 
         return objectIfExists;
     }
-
+    
     public virtual T Update( int id, T entity )
     {
-        var objectIfExists = this.repository!
+        var objectIfExists = this.Repository!
             .GetAllNoTracking()
             .SingleOrDefault( dbObject => dbObject.Id == id );
         
         if ( objectIfExists is null )
             throw new Exception("Object not exists");
 
-        var updated = this.repository.Update(entity);
-        this.repository.Save();
+        var updated = this.Repository.Update(entity);
+        this.Repository.Save();
+        this.Repository.Detach(updated);
         return updated;
     }   
 
     public virtual async Task<T> UpdateAsync( int id, T entity )
     {
-        var objectIfExists = await this.repository!
+        var objectIfExists = await this.Repository!
             .GetAllNoTracking()
             .SingleOrDefaultAsync( dbObject => dbObject.Id == id );
         
         if ( objectIfExists is null )
             throw new Exception("Object not exists");
 
-        var updated = this.repository.Update(entity);
-        await this.repository.SaveAsync();
+        var updated = this.Repository.Update(entity);
+        
+        await this.Repository.SaveAsync();
+        this.Repository.Detach(updated);
         return updated;
     }
+    
+    public virtual void Delete(int id)
+    {
+        var objectIfExists = this.Repository!
+            .GetAllNoTracking()
+            .SingleOrDefault( dbObject => dbObject.Id == id );
+
+        if( objectIfExists is null )
+            throw new Exception("Object not exists");
+        
+        this.Repository.Remove( objectIfExists );
+        this.Repository.Save( );
+    }
+
+    public virtual async Task DeleteAsync(int id)
+    {
+        var objectIfExists = await this.Repository!
+            .GetAllNoTracking()
+            .SingleOrDefaultAsync( dbObject => dbObject.Id == id );
+
+        if( objectIfExists is null )
+            throw new Exception("Object not exists");
+        
+        this.Repository.Remove( objectIfExists );
+        await this.Repository.SaveAsync( );
+    }
+
 }
