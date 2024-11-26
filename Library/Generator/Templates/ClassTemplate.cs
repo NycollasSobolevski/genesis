@@ -17,12 +17,14 @@ public partial class GenesisTemplate
         string tableName = TextManipulator.ToPascalCase(this.TableName);
 
         StringBuilder stringBuilder = new();
-        stringBuilder.AppendLine("using Genesis.Domain.Models;");
-        stringBuilder.AppendLine();
-        stringBuilder.AppendLine($"namespace {@namespace}");
-        stringBuilder.AppendLine();
-        stringBuilder.AppendLine($$"""public partial class {{tableName}} : IEntity""");
-        stringBuilder.AppendLine("{");
+        stringBuilder.AppendLine($$"""
+                                using Genesis.Domain.Models;
+
+                                namespace {{@namespace}}
+                                
+                                public partial class {{tableName}} : IEntity
+                                {
+                                """);
 
         foreach (var item in this.TableData)
         {
@@ -30,7 +32,7 @@ public partial class GenesisTemplate
             if(columnName == "Id")
                 continue;
             string typeInNet = DataTypeConverter.GetNetType(item.DataTypeName).TypeInNet;
-            stringBuilder.AppendLine($$"""  public {{typeInNet}}{{(item.AllowDBNull ?? false ? "?" : "")}} {{columnName}} { get; set; }""");
+            stringBuilder.AppendLine($$"""  public {{typeInNet}}{{( item.AllowDBNull & typeInNet != "string" ?? false ? "?" : "")}} {{columnName}} { get; set; }""");
         }
 
         stringBuilder.AppendLine("}");
@@ -43,20 +45,20 @@ public partial class GenesisTemplate
         StringBuilder stringBuilder = new();
         string tableName = TextManipulator.ToPascalCase(this.TableName);
 
-        stringBuilder.AppendLine($"""
+        stringBuilder.AppendLine($$"""
                                   using Microsoft.EntityFrameworkCore;
                                   using Microsoft.EntityFrameworkCore.Metadata.Builders;
-                                  using {this.Namespace}.Domain.Models;
-                                  """);
-        stringBuilder.AppendLine($"namespace {this.Namespace}.Core.Mapping;");
-        stringBuilder.AppendLine();
-        stringBuilder.AppendLine($"public class {tableName}ClassMap : IEntityTypeConfiguration<{tableName}>");
-        stringBuilder.AppendLine("{");
-        stringBuilder.AppendLine($"    public void Configure(EntityTypeBuilder<{tableName}> builder)");
-        stringBuilder.AppendLine( "    {");
-        stringBuilder.AppendLine($"        builder.HasKey(e => e.Id).HasName(\"PK____{tableName}\");\n");
-        stringBuilder.AppendLine($"        builder.ToTable(\"{this.TableName}\");\n");
+                                  using {{this.Namespace}}.Domain.Models;
 
+                                  namespace {{this.Namespace}}.Core.Mapping;
+                                  
+                                  public class {{tableName}}ClassMap : IEntityTypeConfiguration<{{tableName}}>
+                                  {
+                                      public void Configure(EntityTypeBuilder<{{tableName}}> builder)
+                                      {
+                                          builder.HasKey(e => e.Id).HasName("PK____{{tableName}}");
+                                          builder.ToTable("{{this.TableName}}");
+                                  """);
 
 
         foreach (var column in TableData)
@@ -66,15 +68,13 @@ public partial class GenesisTemplate
             if(column.DataTypeName is "varchar" or "nvarchar" && column.ColumnSize != 2147483647)
                 stringBuilder.AppendLine($"            .HasMaxLength({column.ColumnSize})");
 
-            stringBuilder.AppendLine($"            .HasColumnName(\"{column.ColumnName}\");");
-            stringBuilder.AppendLine();
+            stringBuilder.AppendLine($"            .HasColumnName(\"{column.ColumnName}\");\n");
         }
 
-        stringBuilder.AppendLine( "    }");
-        stringBuilder.AppendLine("}");
-        stringBuilder.AppendLine();
-        stringBuilder.AppendLine();
-
+        stringBuilder.AppendLine( """
+                                      }
+                                  }
+                                  """);
 
         return stringBuilder.ToString();
     }

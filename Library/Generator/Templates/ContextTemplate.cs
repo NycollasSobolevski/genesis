@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Text;
 using Genesis.Text;
-using Microsoft.Identity.Client;
 
 namespace Genesis.Generator.Templates;
 
@@ -12,40 +11,63 @@ public partial class GenesisTemplate
         StringBuilder stringBuilder = new();
         string contextName = $"{this.DatabaseName}Context";
 
-        stringBuilder.AppendLine($"using Microsoft.EntityFrameworkCore;\n");
-        stringBuilder.AppendLine($"using {this.Namespace}.Core.Mapping;\n");
-        stringBuilder.AppendLine($"using {this.Namespace}.Domain.Models;\n");
-        stringBuilder.AppendLine($"namespace {this.Namespace}.Core;\n");
-        stringBuilder.AppendLine($"public partial class {contextName} : DbContext");
-        stringBuilder.AppendLine( "{");
-        stringBuilder.AppendLine($$"""    public {{contextName}}() {}""");
-        stringBuilder.AppendLine();
-        stringBuilder.AppendLine($"    public {contextName}(DbContextOptions<{contextName}> options)");
-        stringBuilder.AppendLine("         : base(options)");
-        stringBuilder.AppendLine( "    {}");
+        stringBuilder.AppendLine($$"""
+                                using Microsoft.EntityFrameworkCore; 
+                                using Genesis.Domain.Models;
+                                using {{this.Namespace}}.Core.Mapping;
+                                using {{ this.Namespace}}.Domain.Models;
+
+                                namespace {{this.Namespace}}.Core;
+
+                                public partial class {{contextName}} : DbContext
+                                {
+                                    public {{contextName}}() {}
+                                    
+                                    public {{contextName}}(DbContextOptions<{{contextName}}> options)
+                                        : base(options)
+                                    {}
+
+                                """);
 
         foreach (var entity in tables)
         {
             System.Console.WriteLine(entity);
             stringBuilder.AppendLine($$"""    public virtual DbSet<{{TextManipulator.ToPascalCase(entity)}}> {{TextManipulator.ToPascalCase(entity)}}List { get; set; }""");
         }
-        
-        stringBuilder.AppendLine( "    protected override void OnConfiguring (DbContextOptionsBuilder optionsBuilder)");
-        stringBuilder.AppendLine( $"        => optionsBuilder.UseSqlServer(@\"{stringConnection}\");");
 
-        stringBuilder.AppendLine( "    protected override void OnModelCreating(ModelBuilder modelBuilder)");
-        stringBuilder.AppendLine( "    {");
+        stringBuilder.AppendLine($$"""    
+
+                                       protected override void OnConfiguring (DbContextOptionsBuilder optionsBuilder)
+                                           => optionsBuilder.UseSqlServer(@"{{stringConnection}}");
+
+                                       protected override void OnModelCreating(ModelBuilder modelBuilder)
+                                       {
+
+                                   """);
 
         foreach (var entity in tables)
             stringBuilder.AppendLine($"        modelBuilder.ApplyConfiguration(new {TextManipulator.ToPascalCase(entity)}ClassMap());");
 
-        stringBuilder.AppendLine( "        OnModelCreatingPartial(modelBuilder);");
+        stringBuilder.AppendLine("""
 
-        stringBuilder.AppendLine( "    }");
+                                           OnModelCreatingPartial(modelBuilder);
+                                       }
+                                       partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
-        stringBuilder.AppendLine( "    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);");
-
-        stringBuilder.AppendLine( "}");
+                                       public override int SaveChanges()
+                                       {
+                                           foreach(var entry in ChangeTracker.Entries())
+                                           {
+                                               if(entry.State == EntityState.Deleted && entry.Entity is ISoftDeleted deleted)
+                                               {
+                                                   entry.State = EntityState.Modified;
+                                                   deleted.DeletedAt = DateTime.Now;
+                                               }
+                                           }
+                                           return base.SaveChanges();
+                                       }
+                                   }
+                                   """);
         
         return stringBuilder.ToString();
     }

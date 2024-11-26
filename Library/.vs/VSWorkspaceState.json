@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\EntityFramework",
+    "\\EntityFramework\\Core",
+    "\\EntityFramework\\Domain"
+  ],
+  "SelectedNode": "\\Genesis.csproj",
+  "PreviewInSolutionExplorer": false
+}
