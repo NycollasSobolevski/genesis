@@ -14,8 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!--<PackageReference Include="AspNetCore.Genesis" Version="*" />-->
-	  <ProjectReference Include="../Library/Genesis.csproj" />
+    <PackageReference Include="AspNetCore.Genesis" Version="*" />
     <None Include="../README.md" Pack="true" PackagePath="\"/>
   </ItemGroup> 
 </Project>
