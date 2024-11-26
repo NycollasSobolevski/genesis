@@ -27,7 +27,7 @@ public class BaseRepository<T>(DbContext context) : IRepository<T>
     public virtual IQueryable<T> GetAllNoTracking()
         => this.Table.AsNoTracking();
 
-    public virtual void Remove(T obj)
+	public virtual void Remove(T obj)
         => this.Table.Remove( obj );
 
     public void Detach(T obj)

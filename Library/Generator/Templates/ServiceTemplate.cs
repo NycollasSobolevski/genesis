@@ -10,15 +10,14 @@ public partial class GenesisTemplate
         StringBuilder stringBuilder = new();
         string tableName = TextManipulator.ToPascalCase(this.TableName);
 
-        stringBuilder.AppendLine("using Genesis.Domain.Services;");
-        stringBuilder.AppendLine($"using {this.Namespace}.Domain.Models;");
-        stringBuilder.AppendLine();
-        stringBuilder.AppendLine($"namespace {this.Namespace}.Domain.Services;");
-        stringBuilder.AppendLine();
-        stringBuilder.Append("public interface I");
-        stringBuilder.Append(tableName);
-        stringBuilder.Append($$"""Service : IService<{{tableName}}>""");
-        stringBuilder.AppendLine("\n{\n\n}");
+        stringBuilder.AppendLine($$"""
+                                   using Genesis.Domain.Services;
+                                   using {{this.Namespace}}.Domain.Models;
+
+                                   namespace {{this.Namespace}}.Domain.Services;
+                                   
+                                   public interface I{{tableName}}Service : IService<{{tableName}}> { }
+                                   """);
 
         return stringBuilder.ToString();
     }
@@ -27,19 +26,18 @@ public partial class GenesisTemplate
         StringBuilder stringBuilder = new();
         string tableName = TextManipulator.ToPascalCase(this.TableName);
 
-        stringBuilder.AppendLine("using Genesis.Core.Services;");
-        stringBuilder.AppendLine("using Genesis.Core.Repositories;");
-        stringBuilder.AppendLine($"using {this.Namespace}.Domain.Models;");
-        stringBuilder.AppendLine($"using {this.Namespace}.Domain.Services;");
-        stringBuilder.AppendLine();
-        stringBuilder.AppendLine($"namespace {this.Namespace}.Core.Services;");
-        stringBuilder.AppendLine();
-        stringBuilder.Append("public class ");
-        stringBuilder.Append(tableName);
-        stringBuilder.AppendLine($$"""Service(BaseRepository<{{tableName}}> repository)""");
-        stringBuilder.AppendLine($$"""    : BaseService<{{tableName}}> (repository), I{{tableName}}Service""");
-        stringBuilder.AppendLine("{");
-        stringBuilder.AppendLine("\n}");
+        stringBuilder.AppendLine($$"""
+                                   using Genesis.Core.Services;
+                                   using Genesis.Core.Repositories;
+                                   using {{this.Namespace}}.Domain.Models;
+                                   using {{this.Namespace}}.Domain.Services;
+                                   
+                                   namespace {{this.Namespace}}.Core.Services;
+                                   
+                                   public class {{tableName}}Service(BaseRepository<{{tableName}}> repository)
+                                       : BaseService<{{tableName}}> (repository), I{{tableName}}Service
+                                   { }
+                                   """);
 
         return stringBuilder.ToString();
     }
