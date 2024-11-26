@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Genesis.Core.Repositories;
@@ -66,8 +67,20 @@ public class BaseService<T>(BaseRepository<T> repository) : IService<T>
 
         return objectIfExists;
     }
-    
-    public virtual T Update( int id, T entity )
+
+	public IEnumerable<T> GetAll()
+        => this.Repository.GetAllNoTracking().ToList() ?? [];
+
+    public async Task<IEnumerable<T>> GetAllAsync()
+        => await this.Repository.GetAllNoTracking().ToListAsync() ?? [];
+
+	public IEnumerable<T> GetAll(int page, int limit)
+		=> [.. this.Repository.GetAllNoTracking().Skip( page * limit ).Take( limit )];
+
+	public async Task<IEnumerable<T>> GetAllAsync(int page, int limit)
+	    => await this.Repository.GetAllNoTracking().Skip(page * limit).Take( limit ).ToListAsync();
+
+	public virtual T Update( int id, T entity )
     {
         var objectIfExists = this.Repository!
             .GetAllNoTracking()
@@ -123,5 +136,4 @@ public class BaseService<T>(BaseRepository<T> repository) : IService<T>
         this.Repository.Remove( objectIfExists );
         await this.Repository.SaveAsync( );
     }
-
 }

@@ -8,7 +8,7 @@ public interface IRepository<T>
     where T : IEntity
 {
     IQueryable<T> Get();
-    IQueryable<T> GetAllNoTracking();
+	IQueryable<T> GetAllNoTracking();
     T Add(T obj);
     T Update(T obj);
     void Remove(T obj);
