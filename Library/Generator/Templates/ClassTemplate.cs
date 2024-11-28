@@ -22,7 +22,7 @@ public partial class GenesisTemplate
 
                                 namespace {{@namespace}}
                                 
-                                public partial class {{tableName}} : IEntity
+                                public partial class {{tableName}} : IEntity, IConverter<{{tableName}}>
                                 {
                                 """);
 
@@ -32,8 +32,13 @@ public partial class GenesisTemplate
             if(columnName == "Id")
                 continue;
             string typeInNet = DataTypeConverter.GetNetType(item.DataTypeName).TypeInNet;
-            stringBuilder.AppendLine($$"""  public {{typeInNet}}{{( item.AllowDBNull & typeInNet != "string" ?? false ? "?" : "")}} {{columnName}} { get; set; }""");
+            stringBuilder.AppendLine($$"""    public {{typeInNet}}{{( item.AllowDBNull & typeInNet != "string" ?? false ? "?" : "")}} {{columnName}} { get; set; }""");
         }
+
+        stringBuilder.AppendLine($$"""
+                                       public {{tableName}} Convert()
+                                           => this;
+                                   """);
 
         stringBuilder.AppendLine("}");
         return stringBuilder.ToString();

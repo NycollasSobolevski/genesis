@@ -10,14 +10,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Genesis.Core.Services;
 
-public class BaseService<T>(BaseRepository<T> repository) : IService<T>
-    where T : IEntity
+public class BaseService<T>(BaseRepository<T> repository) 
+    : BaseService<T,T>(repository)
+        where T : IEntity, IConverter<T>;
+
+public class BaseService<T, TDto>(BaseRepository<T> repository) : IService<T, TDto>
+    where T : IEntity, IConverter<TDto>
 {
 
     protected readonly IRepository<T> Repository = repository;
 
 
-    public virtual void Add(T entity)
+    public virtual TDto Add(T entity)
     {
         var objectIfExists = this.Repository!
             .GetAllNoTracking()
@@ -26,11 +30,13 @@ public class BaseService<T>(BaseRepository<T> repository) : IService<T>
         if ( objectIfExists is not null )
             throw new Exception("Object exists");
 
-        this.Repository.Add( entity );
+        TDto res = this.Repository.Add( entity ).Convert();
         this.Repository.Save( );
+
+        return res;
     }
 
-    public virtual async Task<T> AddAsync(T entity)
+    public virtual async Task<TDto> AddAsync(T entity)
     {
         var objectIfExists = await this.Repository!
             .GetAllNoTracking()
@@ -41,10 +47,10 @@ public class BaseService<T>(BaseRepository<T> repository) : IService<T>
 
         var obj = this.Repository.Add( entity );
         await this.Repository.SaveAsync( );
-        return obj;
+        return obj.Convert();
     }
 
-    public virtual T Get(int id)
+    public virtual TDto Get(int id)
     {
         var objectIfExists = this.Repository!
             .GetAllNoTracking()
@@ -53,10 +59,10 @@ public class BaseService<T>(BaseRepository<T> repository) : IService<T>
         if ( objectIfExists is null )
             throw new Exception("Object not exists");
 
-        return objectIfExists;
+        return objectIfExists.Convert();
     }
 
-    public virtual async Task<T> GetAsync(int id)
+    public virtual async Task<TDto> GetAsync(int id)
     {
         var objectIfExists = await this.Repository!
             .GetAllNoTracking()
@@ -65,22 +71,22 @@ public class BaseService<T>(BaseRepository<T> repository) : IService<T>
         if ( objectIfExists is null )
             throw new Exception("Object not exists");
 
-        return objectIfExists;
+        return objectIfExists.Convert();
     }
 
-	public IEnumerable<T> GetAll()
-        => this.Repository.GetAllNoTracking().ToList() ?? [];
+	public IEnumerable<TDto> GetAll()
+        => this.Repository.GetAllNoTracking().Select(e => e.Convert()).ToList() ?? [];
 
-    public async Task<IEnumerable<T>> GetAllAsync()
-        => await this.Repository.GetAllNoTracking().ToListAsync() ?? [];
+    public async Task<IEnumerable<TDto>> GetAllAsync()
+        => await this.Repository.GetAllNoTracking().Select(e => e.Convert()).ToListAsync() ?? [];
 
-	public IEnumerable<T> GetAll(int page, int limit)
-		=> [.. this.Repository.GetAllNoTracking().Skip( page * limit ).Take( limit )];
+	public IEnumerable<TDto> GetAll(int page, int limit)
+		=> [.. this.Repository.GetAllNoTracking().Skip( page * limit ).Take( limit ).Select(e => e.Convert())];
 
-	public async Task<IEnumerable<T>> GetAllAsync(int page, int limit)
-	    => await this.Repository.GetAllNoTracking().Skip(page * limit).Take( limit ).ToListAsync();
+	public async Task<IEnumerable<TDto>> GetAllAsync(int page, int limit)
+	    => await this.Repository.GetAllNoTracking().Skip(page * limit).Take( limit ).Select(e => e.Convert()).ToListAsync();
 
-	public virtual T Update( int id, T entity )
+	public virtual TDto Update( int id, T entity )
     {
         var objectIfExists = this.Repository!
             .GetAllNoTracking()
@@ -92,10 +98,10 @@ public class BaseService<T>(BaseRepository<T> repository) : IService<T>
         var updated = this.Repository.Update(entity);
         this.Repository.Save();
         this.Repository.Detach(updated);
-        return updated;
+        return updated.Convert();
     }   
 
-    public virtual async Task<T> UpdateAsync( int id, T entity )
+    public virtual async Task<TDto> UpdateAsync( int id, T entity )
     {
         var objectIfExists = await this.Repository!
             .GetAllNoTracking()
@@ -108,7 +114,7 @@ public class BaseService<T>(BaseRepository<T> repository) : IService<T>
         
         await this.Repository.SaveAsync();
         this.Repository.Detach(updated);
-        return updated;
+        return updated.Convert();
     }
     
     public virtual void Delete(int id)

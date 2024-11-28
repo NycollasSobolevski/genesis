@@ -50,11 +50,6 @@ public class ProxyConfigurator : GenesisConfigurator
             );
 
         }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw new Exception();
-        }
         catch 
         {
             throw new InvalidProxyFormatException();
